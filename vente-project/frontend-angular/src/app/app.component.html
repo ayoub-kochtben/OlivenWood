@@ -4,4 +4,6 @@
   <router-outlet></router-outlet>
 </main>
 
+<app-ai-agent *ngIf="!isAdminRoute"></app-ai-agent>
+
 <app-footer *ngIf="!isAdminRoute"></app-footer>
