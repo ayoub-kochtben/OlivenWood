@@ -11,3 +11,10 @@ frontend-angular/.angular/
 # IDE
 .vscode/
 .idea/
+
+
+
+venv/
+__pycache__/
+*.pyc
+.env
