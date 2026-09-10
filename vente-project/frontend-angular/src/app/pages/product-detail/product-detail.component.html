@@ -1,0 +1,93 @@
+<section class="container page-section" *ngIf="produit">
+  <div class="detail-grid">
+
+    <div class="gallery">
+      <div class="main-image-wrap">
+        <img [src]="imageActive" [alt]="produit.nom" class="main-image">
+        <img src="assets/images/logo2.png" alt="" class="main-badge">
+      </div>
+
+      <div class="thumbnails" *ngIf="produit.images && produit.images.length > 1">
+        <button
+          *ngFor="let img of produit.images"
+          class="thumb-btn"
+          [class.active]="img.url === imageActive"
+          (click)="imageActive = img.url">
+          <img [src]="img.url" [alt]="produit.nom">
+        </button>
+      </div>
+    </div>
+
+    <div class="detail-info">
+      <h1>{{ produit.nom }}</h1>
+      <p class="prix">{{ produit.prix | number:'1.2-2' }} €</p>
+
+      <p class="description">{{ produit.description }}</p>
+
+      <div class="dimensions" *ngIf="produit.largeur || produit.hauteur || produit.diametre || produit.longueur">
+        <div class="dim-item" *ngIf="produit.longueur">
+          <span class="dim-label">Longueur</span>
+          <span class="dim-value">{{ produit.longueur }} cm</span>
+        </div>
+        <div class="dim-item" *ngIf="produit.largeur">
+          <span class="dim-label">Largeur</span>
+          <span class="dim-value">{{ produit.largeur }} cm</span>
+        </div>
+        <div class="dim-item" *ngIf="produit.hauteur">
+          <span class="dim-label">Hauteur</span>
+          <span class="dim-value">{{ produit.hauteur }} cm</span>
+        </div>
+        <div class="dim-item" *ngIf="produit.diametre">
+          <span class="dim-label">Diamètre</span>
+          <span class="dim-value">{{ produit.diametre }} cm</span>
+        </div>
+      </div>
+
+      <div class="qty-row">
+        <div class="qty-selector">
+          <button type="button" (click)="quantite = quantite > 1 ? quantite - 1 : 1">−</button>
+          <input type="number" [(ngModel)]="quantite" min="1">
+          <button type="button" (click)="quantite = quantite + 1">+</button>
+        </div>
+
+        <button class="btn-primary" (click)="ajouterAuPanier()">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produits de la même catégorie -->
+  <div class="related-section" *ngIf="produitsSimilaires.length > 0">
+    <div class="related-header">
+      <span class="related-overline">Sélection</span>
+      <h2>Vous aimerez aussi</h2>
+    </div>
+
+    <div class="related-list">
+      <a *ngFor="let p of produitsSimilaires; let i = index"
+         [routerLink]="['/produit', p.id]"
+         class="related-row">
+
+        <div class="related-img-wrap">
+          <img
+            [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'"
+            [alt]="p.nom"
+            class="related-img"
+          >
+        </div>
+
+        <div class="related-info">
+          <span class="related-index">{{ (i + 1) < 10 ? '0' + (i + 1) : (i + 1) }}</span>
+          <h4>{{ p.nom }}</h4>
+          <p class="related-prix">{{ p.prix | number:'1.2-2' }} €</p>
+        </div>
+
+        <span class="related-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>

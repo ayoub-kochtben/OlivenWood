@@ -1,0 +1,103 @@
+{
+  "HEADER": {
+    "SEARCH_PLACEHOLDER": "Produkt suchen...",
+    "LOGIN": "Anmelden",
+    "MY_ACCOUNT": "Mein Konto",
+    "CART": "Warenkorb",
+    "HOME": "Startseite",
+    "LOCATION": "Standort",
+    "ABOUT": "Über uns",
+    "OUR_LOCATION_TITLE": "Unser Standort",
+    "OUR_LOCATION_TEXT": "Finden Sie uns auf der Karte, klicken Sie für die Route.",
+    "OPEN_MAPS": "In Google Maps öffnen →",
+    "CONTACT_US_TITLE": "Kontaktieren Sie uns",
+    "CONTACT_US_TEXT": "Zögern Sie nicht, uns zu kontaktieren.",
+    "LEARN_MORE": "Mehr erfahren →",
+    "SEE_ALL": "Alle anzeigen →",
+    "NO_PRODUCTS_YET": "Noch keine Produkte."
+  },
+ "FOOTER": {
+  "TAGLINE": "Sorgfältig ausgewählte Produkte, die Qualität und Authentizität direkt zu Ihnen nach Hause bringen.",
+  "BRAND_TAGLINE": "QUALITÄT · AUTHENTIZITÄT · VERTRAUEN",
+  "NAVIGATION": "Navigation",
+  "CATEGORIES": "Kategorien",
+  "ABOUT": "Über uns",
+  "LOCATION": "Standort",
+  "CONTACT": "Kontaktieren Sie uns",
+  "CONTACT_INTRO": "Eine Frage oder brauchen Sie Hilfe? Unser Team ist für Sie da.",
+  "PHONE": "Telefon",
+  "EMAIL": "E-Mail",
+  "ADDRESS": "Adresse",
+  "COPYRIGHT": "Alle Rechte vorbehalten.",
+  "FOLLOW_US": "Folgen Sie uns",
+  "MADE_WITH": "Mit Sorgfalt gemacht"
+},
+  "HOME": {
+    "TITLE": "Oliven Wood",
+    "SUBTITLE": "Einzigartige Kreationen aus Olivenholz, mit Leidenschaft und Handwerkskunst gefertigt.",
+    "OUR_CREATIONS": "Unsere Kreationen",
+    "OUR_CATEGORIES": "Unsere Kategorien",
+    "POPULAR_PRODUCTS": "Beliebte Produkte",
+    "OUR_STORY": "Unsere Geschichte",
+    "STORY_TEXT": "Alles begann inmitten jahrhundertealter Olivenhaine, wo Olivenholz, geformt von Zeit und mediterraner Sonne, einzigartige Maserungen und einen unvergleichlichen Farbton offenbart. Bei Oliven Wood wird jedes Stück von leidenschaftlichen Handwerkern von Hand geschnitzt, die ein von Generation zu Generation weitergegebenes Handwerk pflegen. Vom Schneidebrett bis zur zartesten Schale verwandeln wir Holz ausgedienter Olivenbäume in langlebige Objekte voller Geschichte, die Ihren Alltag mit Authentizität und natürlicher Eleganz begleiten sollen.",
+    "SLIDE1_TITLE": "Geboren in den Olivenhainen",
+    "SLIDE1_SUB": "Ein von Generation zu Generation weitergegebenes Handwerk",
+    "SLIDE2_TITLE": "Von Hand geschnitzt",
+    "SLIDE2_SUB": "Jedes Stück von leidenschaftlichen Handwerkern geformt",
+    "SLIDE3_TITLE": "Natürliche Eleganz",
+    "SLIDE3_SUB": "Langlebige Objekte, voller Geschichte",
+    "PROMO_TITLE": "Bis zu -50% diese Woche",
+    "PROMO_TEXT": "Verpassen Sie nicht unsere exklusiven Angebote auf eine Auswahl von Produkten.",
+    "PROMO_CTA": "Jetzt einkaufen"
+  },
+  "CATEGORY": {
+    "ALL_CATEGORIES": "Alle unsere Kategorien",
+    "NO_PRODUCTS": "Noch keine Produkte in dieser Kategorie."
+  },
+  "PRODUCT": {
+    "IN_STOCK": "Auf Lager",
+    "OUT_OF_STOCK": "Ausverkauft",
+    "ADD_TO_CART": "In den Warenkorb"
+  },
+  "ABOUT": {
+    "TITLE": "Über uns",
+    "LEAD": "Oliven Wood fertigt seit mehreren Jahren Gegenstände aus Olivenholz, mit handwerklichem Können und einer sorgfältigen Materialauswahl.",
+    "DID_YOU_KNOW": "Wussten Sie schon?",
+    "FACT1": "Wir liefern in mehr als 20 Städte.",
+    "FACT2": "Über 10.000 zufriedene Kunden vertrauen uns.",
+    "FACT3": "Unsere Produkte werden sorgfältig von zertifizierten Lieferanten ausgewählt.",
+    "FACT4": "Unser Kundenservice antwortet innerhalb von 24 Stunden."
+  },
+  "LOCATION": {
+    "TITLE": "Unser Standort",
+    "GET_DIRECTIONS": "Route abrufen",
+    "LOCATING": "Standort wird ermittelt...",
+    "OPEN_MAPS": "In Maps öffnen"
+  },
+  "LOGIN": {
+    "LOGIN_TITLE": "Anmelden",
+    "REGISTER_TITLE": "Konto erstellen",
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "LOGIN_BTN": "Anmelden",
+    "REGISTER_BTN": "Registrieren",
+    "SWITCH_TO_REGISTER": "Kein Konto? Registrieren",
+    "SWITCH_TO_LOGIN": "Bereits ein Konto? Anmelden",
+    "ERROR_LOGIN": "Falsche E-Mail oder Passwort.",
+    "ERROR_REGISTER": "Fehler bei der Registrierung."
+  },
+  "CART": {
+    "TITLE": "Mein Warenkorb",
+    "EMPTY": "Ihr Warenkorb ist leer.",
+    "TOTAL": "Gesamt:",
+    "CHECKOUT": "Zur Kasse"
+  },
+  "AI_AGENT": {
+    "GREETING": "Hallo 👋 Ich bin Ihr Assistent. Wie kann ich Ihnen helfen?",
+    "TITLE": "KI-Assistent",
+    "PLACEHOLDER": "Stellen Sie Ihre Frage...",
+    "SEARCHING": "Suche Informationen zu \"{{query}}\"..."
+  }
+}

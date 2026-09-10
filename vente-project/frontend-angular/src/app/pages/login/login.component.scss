@@ -1,0 +1,11 @@
+.login-section { display: flex; justify-content: center; padding: 60px 0; }
+.login-card {
+  background: #fff; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow);
+  width: 380px; max-width: 90%;
+  h1 { text-align: center; margin-bottom: 20px; }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+  .erreur { color: red; text-align: center; }
+  .switch { text-align: center; margin-top: 16px; }
+  .switch a { color: var(--primary); cursor: pointer; }
+}

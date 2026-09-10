@@ -1,0 +1,85 @@
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>Oliven Wood</h1>
+      <p>Des créations uniques en bois d'olivier, façonnées avec passion et savoir-faire.</p>
+    </div>
+
+    <div class="hero-logo-wrap">
+      <img src="assets/images/logo2.png" alt="Oliven Wood" class="hero-logo">
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Nos créations</h2>
+
+  <div class="product-showcase-grid">
+    <a *ngFor="let p of produitsCarrousel; trackBy: trackByIndex" [routerLink]="['/produit', p.id]" class="showcase-item">
+      <div class="showcase-img-wrap">
+        <img
+          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'"
+          [alt]="p.nom"
+          class="showcase-img"
+        >
+        <img src="assets/images/logo2.png" alt="" class="showcase-badge">
+      </div>
+
+      <div class="showcase-info">
+        <h4>{{ p.nom }}</h4>
+        <p class="prix">{{ p.prix | number:'1.2-2' }} €</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Notre histoire — carrousel -->
+<section class="story-carousel">
+  <div class="slide"
+       *ngFor="let slide of storySlides; let i = index; trackBy: trackByIndex"
+       [class.active]="i === currentSlide"
+       [style.backgroundImage]="'url(' + slide.image + ')'">
+  </div>
+
+  <div class="story-overlay"></div>
+
+  <button class="story-arrow arrow-left" (click)="onArrowClick('prev')" aria-label="Précédent">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="story-arrow arrow-right" (click)="onArrowClick('next')" aria-label="Suivant">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="story-content" *ngIf="storySlides.length > 0">
+    <h2>{{ storySlides[currentSlide]?.titre }}</h2>
+    <p>{{ storySlides[currentSlide]?.soustitre }}</p>
+  </div>
+
+  <div class="story-dots">
+    <span *ngFor="let slide of storySlides; let i = index; trackBy: trackByIndex"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)"></span>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-bg"></div>
+  <div class="container story-inner">
+    <h2 class="section-title" style="color:#fff; text-align:left;">Notre histoire</h2>
+    <p>
+      Tout a commencé au cœur des oliveraies centenaires, là où le bois d'olivier,
+      façonné par le temps et le soleil méditerranéen, révèle des veines uniques
+      et une teinte incomparable. Chez Oliven Wood, chaque pièce est sculptée à
+      la main par des artisans passionnés qui perpétuent un savoir-faire transmis
+      de génération en génération. Du plateau à découper au bol le plus délicat,
+      nous transformons le bois issu d'oliviers en fin de vie en objets durables,
+      chargés d'histoire, pensés pour accompagner votre quotidien avec authenticité
+      et élégance naturelle.
+    </p>
+  </div>
+</section>

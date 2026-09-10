@@ -1,0 +1,50 @@
+/* ===== Styles globaux - Design professionnel ===== */
+:root {
+   --header-height: 128px;
+  --primary: #8b5e3c;
+  --primary-dark: #6f4527;
+  --secondary: #1a1a2e;
+  --light-bg: #f7f8fa;
+  --text-dark: #222;
+  --text-muted: #6b6b6b;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--light-bg);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.btn-primary:hover { background: var(--primary-dark); }
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+main {
+  display: block;
+  padding-top: var(--header-height);
+}

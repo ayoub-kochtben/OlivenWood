@@ -1,0 +1,22 @@
+<section class="container page-section">
+  <h1 class="section-title">{{ categorie?.nom }}</h1>
+
+  <div class="product-grid">
+    <a *ngFor="let p of produits" [routerLink]="['/produit', p.id]" class="product-card">
+
+      <div class="product-img-wrap">
+        <img
+          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'"
+          [alt]="p.nom"
+          class="product-img"
+        >
+        <img src="assets/images/logo2.png" alt="" class="product-badge">
+      </div>
+
+      <h4>{{ p.nom }}</h4>
+      <p class="prix">{{ p.prix | number:'1.0-2' }} €</p>
+    </a>
+  </div>
+
+  <p *ngIf="produits.length === 0">Aucun produit dans cette catégorie pour le moment.</p>
+</section>

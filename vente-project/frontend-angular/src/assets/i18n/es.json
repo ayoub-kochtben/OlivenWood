@@ -1,0 +1,103 @@
+{
+  "HEADER": {
+    "SEARCH_PLACEHOLDER": "Buscar un producto...",
+    "LOGIN": "Iniciar sesión",
+    "MY_ACCOUNT": "Mi cuenta",
+    "CART": "Carrito",
+    "HOME": "Inicio",
+    "LOCATION": "Ubicación",
+    "ABOUT": "Sobre nosotros",
+    "OUR_LOCATION_TITLE": "Nuestra ubicación",
+    "OUR_LOCATION_TEXT": "Encuéntranos en el mapa, haz clic para la ruta.",
+    "OPEN_MAPS": "Abrir en Google Maps →",
+    "CONTACT_US_TITLE": "Contáctanos",
+    "CONTACT_US_TEXT": "No dudes en contactarnos.",
+    "LEARN_MORE": "Saber más →",
+    "SEE_ALL": "Ver todo →",
+    "NO_PRODUCTS_YET": "Aún no hay productos."
+  },
+ "FOOTER": {
+  "TAGLINE": "Productos cuidadosamente seleccionados, pensados para llevar calidad y autenticidad directamente a tu puerta.",
+  "BRAND_TAGLINE": "CALIDAD · AUTENTICIDAD · CONFIANZA",
+  "NAVIGATION": "Navegación",
+  "CATEGORIES": "Categorías",
+  "ABOUT": "Sobre nosotros",
+  "LOCATION": "Ubicación",
+  "CONTACT": "Contáctanos",
+  "CONTACT_INTRO": "¿Tienes una pregunta o necesitas ayuda? Nuestro equipo está a tu disposición.",
+  "PHONE": "Teléfono",
+  "EMAIL": "Correo electrónico",
+  "ADDRESS": "Dirección",
+  "COPYRIGHT": "Todos los derechos reservados.",
+  "FOLLOW_US": "Síguenos",
+  "MADE_WITH": "Hecho con cuidado"
+},
+  "HOME": {
+    "TITLE": "Oliven Wood",
+    "SUBTITLE": "Creaciones únicas en madera de olivo, elaboradas con pasión y sabiduría artesanal.",
+    "OUR_CREATIONS": "Nuestras creaciones",
+    "OUR_CATEGORIES": "Nuestras categorías",
+    "POPULAR_PRODUCTS": "Productos populares",
+    "OUR_STORY": "Nuestra historia",
+    "STORY_TEXT": "Todo comenzó en el corazón de olivares centenarios, donde la madera de olivo, moldeada por el tiempo y el sol mediterráneo, revela vetas únicas y un tono incomparable. En Oliven Wood, cada pieza es tallada a mano por artesanos apasionados que perpetúan un oficio transmitido de generación en generación. Desde tablas de cortar hasta los cuencos más delicados, transformamos madera de olivos retirados en objetos duraderos, cargados de historia, pensados para acompañar tu día a día con autenticidad y elegancia natural.",
+    "SLIDE1_TITLE": "Nacida en los olivares",
+    "SLIDE1_SUB": "Un oficio transmitido de generación en generación",
+    "SLIDE2_TITLE": "Tallada a mano",
+    "SLIDE2_SUB": "Cada pieza moldeada por artesanos apasionados",
+    "SLIDE3_TITLE": "Elegancia natural",
+    "SLIDE3_SUB": "Objetos duraderos, cargados de historia",
+    "PROMO_TITLE": "Hasta -50% esta semana",
+    "PROMO_TEXT": "No te pierdas nuestras ofertas exclusivas en una selección de productos.",
+    "PROMO_CTA": "Comprar ahora"
+  },
+  "CATEGORY": {
+    "ALL_CATEGORIES": "Todas nuestras categorías",
+    "NO_PRODUCTS": "Aún no hay productos en esta categoría."
+  },
+  "PRODUCT": {
+    "IN_STOCK": "En stock",
+    "OUT_OF_STOCK": "Agotado",
+    "ADD_TO_CART": "Añadir al carrito"
+  },
+  "ABOUT": {
+    "TITLE": "Sobre nosotros",
+    "LEAD": "Oliven Wood elabora objetos de madera de olivo desde hace varios años, con un saber hacer artesanal y una selección rigurosa de materiales.",
+    "DID_YOU_KNOW": "¿Sabías que...?",
+    "FACT1": "Entregamos en más de 20 ciudades.",
+    "FACT2": "Más de 10,000 clientes satisfechos confían en nosotros.",
+    "FACT3": "Nuestros productos se seleccionan cuidadosamente de proveedores certificados.",
+    "FACT4": "Nuestro servicio al cliente responde en menos de 24 horas."
+  },
+  "LOCATION": {
+    "TITLE": "Nuestra ubicación",
+    "GET_DIRECTIONS": "Obtener ruta",
+    "LOCATING": "Localizando...",
+    "OPEN_MAPS": "Abrir en Maps"
+  },
+  "LOGIN": {
+    "LOGIN_TITLE": "Iniciar sesión",
+    "REGISTER_TITLE": "Crear una cuenta",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "FIRST_NAME": "Nombre",
+    "LAST_NAME": "Apellido",
+    "LOGIN_BTN": "Iniciar sesión",
+    "REGISTER_BTN": "Registrarse",
+    "SWITCH_TO_REGISTER": "¿No tienes cuenta? Regístrate",
+    "SWITCH_TO_LOGIN": "¿Ya tienes cuenta? Inicia sesión",
+    "ERROR_LOGIN": "Correo o contraseña incorrectos.",
+    "ERROR_REGISTER": "Error durante el registro."
+  },
+  "CART": {
+    "TITLE": "Mi carrito",
+    "EMPTY": "Tu carrito está vacío.",
+    "TOTAL": "Total:",
+    "CHECKOUT": "Finalizar compra"
+  },
+  "AI_AGENT": {
+    "GREETING": "Hola 👋 Soy tu asistente. ¿Cómo puedo ayudarte?",
+    "TITLE": "Asistente IA",
+    "PLACEHOLDER": "Haz tu pregunta...",
+    "SEARCHING": "Buscando información sobre \"{{query}}\"..."
+  }
+}

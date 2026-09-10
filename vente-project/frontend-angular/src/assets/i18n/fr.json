@@ -1,0 +1,105 @@
+{
+  "HEADER": {
+    "SEARCH_PLACEHOLDER": "Rechercher un produit...",
+    "LOGOUT": "Déconnexion",
+    "LOGIN":"connexion",
+    "LOGOUT_CONFIRM_SHORT": "Vous êtes sûr ?",
+    "MY_ACCOUNT": "Mon compte",
+    "CART": "Panier",
+    "HOME": "Accueil",
+    "LOCATION": "Localisation",
+    "ABOUT": "À propos",
+    "OUR_LOCATION_TITLE": "Notre emplacement",
+    "OUR_LOCATION_TEXT": "Retrouvez-nous sur la carte, cliquez pour l'itinéraire.",
+    "OPEN_MAPS": "Ouvrir dans Google Maps →",
+    "CONTACT_US_TITLE": "Contactez-nous",
+    "CONTACT_US_TEXT": "N'hésitez pas à nous contacter.",
+    "LEARN_MORE": "En savoir plus →",
+    "SEE_ALL": "Voir tout →",
+    "NO_PRODUCTS_YET": "Aucun produit pour l'instant."
+  },
+  "FOOTER": {
+  "TAGLINE": "Des produits soigneusement sélectionnés, pensés pour apporter qualité et authenticité directement chez vous.",
+  "BRAND_TAGLINE": "QUALITÉ · AUTHENTICITÉ · CONFIANCE",
+  "NAVIGATION": "Navigation",
+  "CATEGORIES": "Catégories",
+  "ABOUT": "À propos",
+  "LOCATION": "Localisation",
+  "CONTACT": "Contactez-nous",
+  "CONTACT_INTRO": "Une question ou besoin d'aide ? Notre équipe est à votre écoute.",
+  "PHONE": "Téléphone",
+  "EMAIL": "Email",
+  "ADDRESS": "Adresse",
+  "COPYRIGHT": "Tous droits réservés.",
+  "FOLLOW_US": "Suivez-nous",
+  "MADE_WITH": "Fait avec soin"
+},
+  "HOME": {
+    "TITLE": "Oliven Wood",
+    "SUBTITLE": "Des créations uniques en bois d'olivier, façonnées avec passion et savoir-faire.",
+    "OUR_CREATIONS": "Nos créations",
+    "OUR_CATEGORIES": "Nos catégories",
+    "POPULAR_PRODUCTS": "Produits populaires",
+    "OUR_STORY": "Notre histoire",
+    "STORY_TEXT": "Tout a commencé au cœur des oliveraies centenaires, là où le bois d'olivier, façonné par le temps et le soleil méditerranéen, révèle des veines uniques et une teinte incomparable. Chez Oliven Wood, chaque pièce est sculptée à la main par des artisans passionnés qui perpétuent un savoir-faire transmis de génération en génération. Du plateau à découper au bol le plus délicat, nous transformons le bois issu d'oliviers en fin de vie en objets durables, chargés d'histoire, pensés pour accompagner votre quotidien avec authenticité et élégance naturelle.",
+    "SLIDE1_TITLE": "Née au cœur des oliveraies",
+    "SLIDE1_SUB": "Un savoir-faire transmis de génération en génération",
+    "SLIDE2_TITLE": "Sculptée à la main",
+    "SLIDE2_SUB": "Chaque pièce façonnée par des artisans passionnés",
+    "SLIDE3_TITLE": "Une élégance naturelle",
+    "SLIDE3_SUB": "Des objets durables, chargés d'histoire",
+    "PROMO_TITLE": "Jusqu'à -50% cette semaine",
+    "PROMO_TEXT": "Ne manquez pas nos offres exclusives sur une sélection de produits.",
+    "PROMO_CTA": "J'en profite"
+  },
+  "CATEGORY": {
+    "ALL_CATEGORIES": "Toutes nos catégories",
+    "NO_PRODUCTS": "Aucun produit dans cette catégorie pour le moment."
+  },
+  "PRODUCT": {
+    "IN_STOCK": "En stock",
+    "OUT_OF_STOCK": "Rupture de stock",
+    "ADD_TO_CART": "Ajouter au panier"
+  },
+  "ABOUT": {
+    "TITLE": "À propos de nous",
+    "LEAD": "Oliven Wood façonne des objets en bois d'olivier depuis plusieurs années, avec un savoir-faire artisanal et une sélection rigoureuse de nos matériaux.",
+    "DID_YOU_KNOW": "Le saviez-vous ?",
+    "FACT1": "Nous livrons dans plus de 20 villes.",
+    "FACT2": "Plus de 10 000 clients satisfaits nous font confiance.",
+    "FACT3": "Nos produits sont sélectionnés avec soin auprès de fournisseurs certifiés.",
+    "FACT4": "Notre service client répond en moins de 24h."
+  },
+  "LOCATION": {
+    "TITLE": "Notre localisation",
+    "GET_DIRECTIONS": "Obtenir l'itinéraire",
+    "LOCATING": "Localisation en cours...",
+    "OPEN_MAPS": "Ouvrir dans Maps"
+  },
+  "LOGIN": {
+    "LOGIN_TITLE": "Connexion",
+    "REGISTER_TITLE": "Créer un compte",
+    "EMAIL": "Email",
+    "PASSWORD": "Mot de passe",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom",
+    "LOGIN_BTN": "Se connecter",
+    "REGISTER_BTN": "S'inscrire",
+    "SWITCH_TO_REGISTER": "Pas de compte ? S'inscrire",
+    "SWITCH_TO_LOGIN": "Déjà un compte ? Se connecter",
+    "ERROR_LOGIN": "Email ou mot de passe incorrect.",
+    "ERROR_REGISTER": "Erreur lors de l'inscription."
+  },
+  "CART": {
+    "TITLE": "Mon panier",
+    "EMPTY": "Votre panier est vide.",
+    "TOTAL": "Total :",
+    "CHECKOUT": "Passer la commande"
+  },
+  "AI_AGENT": {
+    "GREETING": "Bonjour 👋 Je suis votre assistant. Comment puis-je vous aider ?",
+    "TITLE": "Assistant IA",
+    "PLACEHOLDER": "Posez votre question...",
+    "SEARCHING": "Je recherche des informations sur \"{{query}}\"..."
+  }
+}

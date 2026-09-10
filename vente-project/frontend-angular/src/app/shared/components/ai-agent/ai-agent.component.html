@@ -1,0 +1,16 @@
+<div class="ai-widget">
+  <button class="ai-toggle" (click)="toggle()">🤖</button>
+  <div class="ai-chat" *ngIf="ouvert">
+    <div class="ai-header">Assistant IA</div>
+    <div class="ai-body">
+      <div *ngFor="let m of messages" [class.me]="m.deMoi" class="ai-message">
+        {{ m.texte }}
+      </div>
+      <div *ngIf="enCours" class="ai-message ai-typing">En train d'écrire...</div>
+    </div>
+    <div class="ai-footer">
+      <input [(ngModel)]="saisie" (keyup.enter)="envoyer()" placeholder="Posez votre question..." [disabled]="enCours">
+      <button (click)="envoyer()" [disabled]="enCours">➤</button>
+    </div>
+  </div>
+</div>

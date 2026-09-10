@@ -1,0 +1,13 @@
+# Backend Spring Boot
+backend-springboot/target/
+backend-springboot/.mvn/
+backend-springboot/*.class
+
+# Frontend Angular
+frontend-angular/node_modules/
+frontend-angular/dist/
+frontend-angular/.angular/
+
+# IDE
+.vscode/
+.idea/

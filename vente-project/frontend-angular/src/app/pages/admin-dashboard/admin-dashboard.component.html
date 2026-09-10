@@ -1,0 +1,183 @@
+<app-admin-header>
+  <span class="admin-page-title">Espace administrateur</span>
+  <button class="btn-logout" (click)="deconnecter()">Déconnexion</button>
+</app-admin-header>
+
+<div class="admin-body">
+
+  <nav class="admin-tabs">
+    <button [class.active]="ongletActif === 'produits'" (click)="changerOnglet('produits')">Produits</button>
+    <button [class.active]="ongletActif === 'categories'" (click)="changerOnglet('categories')">Catégories</button>
+    <button [class.active]="ongletActif === 'commandes'" (click)="changerOnglet('commandes')">Commandes</button>
+    <button [class.active]="ongletActif === 'utilisateurs'" (click)="changerOnglet('utilisateurs')">Utilisateurs</button>
+  </nav>
+
+  <!-- ===== PRODUITS ===== -->
+  <div class="admin-panel" *ngIf="ongletActif === 'produits'">
+    <div class="panel-header">
+      <h2>Produits</h2>
+      <button class="btn-primary" (click)="nouveauProduit()" *ngIf="!modeEditionProduit">+ Ajouter un produit</button>
+    </div>
+
+    <div class="admin-form" *ngIf="modeEditionProduit">
+      <h3>{{ produitEnEdition.id ? 'Modifier le produit' : 'Nouveau produit' }}</h3>
+
+      <div class="form-row">
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="produitEnEdition.nom">
+      </div>
+
+      <div class="form-row">
+        <label>Description</label>
+        <textarea rows="3" [(ngModel)]="produitEnEdition.description"></textarea>
+      </div>
+
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label>Prix (€)</label>
+          <input type="number" [(ngModel)]="produitEnEdition.prix">
+        </div>
+        <div class="form-row">
+          <label>Catégorie</label>
+          <select [(ngModel)]="produitEnEdition.categorieId">
+            <option [ngValue]="null">— Aucune —</option>
+            <option *ngFor="let c of categories" [ngValue]="c.id">{{ c.nom }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row-grid dims">
+        <div class="form-row">
+          <label>Longueur (cm)</label>
+          <input type="number" [(ngModel)]="produitEnEdition.longueur">
+        </div>
+        <div class="form-row">
+          <label>Largeur (cm)</label>
+          <input type="number" [(ngModel)]="produitEnEdition.largeur">
+        </div>
+        <div class="form-row">
+          <label>Hauteur (cm)</label>
+          <input type="number" [(ngModel)]="produitEnEdition.hauteur">
+        </div>
+        <div class="form-row">
+          <label>Diamètre (cm)</label>
+          <input type="number" [(ngModel)]="produitEnEdition.diametre">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Images (chemins relatifs, ex: assets/images/produit1.jpg)</label>
+        <div class="image-add-row">
+          <input type="text" placeholder="assets/images/..." [(ngModel)]="nouvelleImageUrl" (keyup.enter)="ajouterImage()">
+          <button type="button" class="btn-secondary" (click)="ajouterImage()">Ajouter</button>
+        </div>
+        <ul class="image-list">
+          <li *ngFor="let img of produitEnEdition.images; let i = index">
+            <img [src]="img.url" alt="">
+            <span>{{ img.url }}</span>
+            <button type="button" (click)="retirerImage(i)">✕</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-primary" (click)="enregistrerProduit()">Enregistrer</button>
+        <button class="btn-secondary" (click)="annulerEditionProduit()">Annuler</button>
+      </div>
+    </div>
+
+    <table class="admin-table" *ngIf="!modeEditionProduit">
+      <thead>
+        <tr><th>Image</th><th>Nom</th><th>Catégorie</th><th>Prix</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of produits">
+          <td><img [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'" class="thumb"></td>
+          <td>{{ p.nom }}</td>
+          <td>{{ p.categorieNom || '—' }}</td>
+          <td>{{ p.prix | number:'1.0-2' }} €</td>
+          <td class="actions">
+            <button (click)="editerProduit(p)">Modifier</button>
+            <button class="danger" (click)="supprimerProduit(p.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+  <div class="admin-panel" *ngIf="ongletActif === 'categories'">
+    <div class="panel-header">
+      <h2>Catégories</h2>
+      <button class="btn-primary" (click)="nouvelleCategorie()" *ngIf="!modeEditionCategorie">+ Ajouter une catégorie</button>
+    </div>
+
+    <div class="admin-form" *ngIf="modeEditionCategorie">
+      <h3>{{ categorieEnEdition.id ? 'Modifier la catégorie' : 'Nouvelle catégorie' }}</h3>
+      <div class="form-row">
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="categorieEnEdition.nom">
+      </div>
+      <div class="form-actions">
+        <button class="btn-primary" (click)="enregistrerCategorie()">Enregistrer</button>
+        <button class="btn-secondary" (click)="annulerEditionCategorie()">Annuler</button>
+      </div>
+    </div>
+
+    <table class="admin-table" *ngIf="!modeEditionCategorie">
+      <thead><tr><th>Nom</th><th></th></tr></thead>
+      <tbody>
+        <tr *ngFor="let c of categories">
+          <td>{{ c.nom }}</td>
+          <td class="actions">
+            <button (click)="editerCategorie(c)">Modifier</button>
+            <button class="danger" (click)="supprimerCategorie(c.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== COMMANDES ===== -->
+  <div class="admin-panel" *ngIf="ongletActif === 'commandes'">
+    <div class="panel-header"><h2>Commandes</h2></div>
+
+    <p *ngIf="commandes.length === 0" class="empty">Aucune commande pour l'instant.</p>
+
+    <table class="admin-table" *ngIf="commandes.length > 0">
+      <thead>
+        <tr><th>#</th><th>Client</th><th>Date</th><th>Total</th><th>Statut</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cmd of commandes">
+          <td>{{ cmd.id }}</td>
+          <td>{{ cmd.utilisateur?.prenom }} {{ cmd.utilisateur?.nom }}<br><small>{{ cmd.utilisateur?.email }}</small></td>
+          <td>{{ cmd.dateCommande | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ cmd.total | number:'1.0-2' }} €</td>
+          <td>
+            <select [ngModel]="cmd.statut" (ngModelChange)="changerStatut(cmd, $event)">
+              <option *ngFor="let s of statutsDisponibles" [value]="s">{{ s }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== UTILISATEURS ===== -->
+  <div class="admin-panel" *ngIf="ongletActif === 'utilisateurs'">
+    <div class="panel-header"><h2>Utilisateurs</h2></div>
+
+    <table class="admin-table">
+      <thead><tr><th>Nom</th><th>Prénom</th><th>Email</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let u of utilisateurs">
+          <td>{{ u.nom }}</td>
+          <td>{{ u.prenom }}</td>
+          <td>{{ u.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

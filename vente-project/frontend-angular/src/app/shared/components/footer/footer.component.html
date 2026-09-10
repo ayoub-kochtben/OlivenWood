@@ -1,0 +1,102 @@
+<footer class="main-footer">
+  <div class="footer-container">
+
+    <div class="footer-content">
+
+      <!-- Colonne gauche -->
+      <div class="footer-column">
+
+        <!-- Téléphone -->
+        <div class="footer-item">
+          <span class="footer-icon">☎</span>
+          <span>50 124 331</span>
+        </div>
+
+        <!-- Email -->
+       <a routerLink="/a-propos" fragment="contact" class="footer-item">
+          <span class="footer-icon">✉</span>
+          <span>ayoubkochtbene&#64;gmail.com</span>
+      </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/kouchtbenayoub"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-item"
+        >
+          <span class="footer-icon instagram-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                stroke="currentColor"
+                stroke-width="1.7"
+              ></rect>
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4.2"
+                stroke="currentColor"
+                stroke-width="1.7"
+              ></circle>
+
+              <circle
+                cx="17.3"
+                cy="6.7"
+                r="1.15"
+                fill="currentColor"
+              ></circle>
+            </svg>
+          </span>
+
+          <span>Instagram</span>
+        </a>
+
+      </div>
+
+
+      <!-- Logo central -->
+      <div class="footer-logo">
+       <a routerLink="/" class="footer-logo">
+        <img src="assets/images/logo2.png" alt="VenteShop">
+      </a>
+      </div>
+
+
+      <!-- Colonne droite -->
+      <div class="footer-column right-column">
+
+        <!-- Adresse -->
+        <div class="footer-item">
+          <span class="footer-icon">⌖</span>
+          <span>Tunisie, Mahdia, Ksour-Essef</span>
+        </div>
+
+        <!-- Localisation -->
+       <a routerLink="/a-propos" fragment="localisation" class="footer-item location-link">
+        <span class="footer-icon">↗</span>
+        <span>Voir la localisation</span>
+      </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <span>© {{ annee }} VenteShop</span>
+      <span>Tous droits réservés.</span>
+    </div>
+
+  </div>
+</footer>

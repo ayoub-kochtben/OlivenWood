@@ -1,0 +1,181 @@
+<section class="location-section">
+
+  <div class="location-container">
+
+    <!-- HEADER -->
+    <div class="location-header">
+
+      <span class="location-eyebrow">
+        <span class="eyebrow-line"></span>
+        NOUS RENDRE VISITE
+        <span class="eyebrow-line"></span>
+      </span>
+
+      <h1 class="section-title">
+        Notre localisation
+      </h1>
+
+      <p class="location-subtitle">
+        Retrouvez-nous facilement et venez découvrir notre univers.
+      </p>
+
+    </div>
+
+
+    <!-- LOCATION CARD -->
+    <div class="location-wrapper">
+
+      <!-- LEFT INFORMATION PANEL -->
+      <div class="location-info">
+
+        <!-- ADDRESS -->
+        <div class="address-block">
+
+          <div class="address-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                r="2.2"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <span class="address-title">
+              Adresse
+            </span>
+
+            <p>
+              Ceinture de Mahdia,<br>
+              Ksour Essef, Mahdia, Tunisie
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- STATUS -->
+        <div class="location-status">
+
+          <span class="status-dot"></span>
+
+          <div>
+            <strong>
+              Nous sommes à votre disposition
+            </strong>
+
+            <small>
+              Venez nous découvrir
+            </small>
+          </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+        <button
+          class="btn-itinerary"
+          (click)="obtenirItineraire()"
+          [disabled]="chargementPosition"
+        >
+
+          <span class="button-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+
+              <circle
+                cx="12"
+                cy="10"
+                r="2.3"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+            </svg>
+
+          </span>
+
+          <span>
+            {{
+              chargementPosition
+                ? 'Localisation en cours...'
+                : "Obtenir l'itinéraire"
+            }}
+          </span>
+
+          <span class="button-arrow">
+            →
+          </span>
+
+        </button>
+
+
+        <!-- ERROR -->
+        <p
+          class="itinerary-error"
+          *ngIf="erreurPosition"
+        >
+          {{ erreurPosition }}
+        </p>
+
+      </div>
+
+
+      <!-- RIGHT MAP PANEL -->
+      <div class="location-map">
+
+        <iframe
+          [src]="mapUrl"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+
+        <div class="map-badge">
+
+          <div class="map-badge-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                r="2.3"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <strong>Notre boutique</strong>
+            <span>Ksour Essef, Mahdia</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

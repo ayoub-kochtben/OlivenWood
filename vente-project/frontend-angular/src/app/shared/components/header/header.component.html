@@ -1,0 +1,276 @@
+<header class="main-header" [class.header-transparent]="isHomePage && !isScrolled">
+
+  <!-- ========================================================= -->
+  <!-- HEADER NORMAL                                             -->
+  <!-- ========================================================= -->
+
+  <ng-container *ngIf="!isScrolled">
+
+    <div class="container header-row-top">
+
+      <!-- LOGO -->
+      <a routerLink="/" class="logo">
+        <img src="assets/images/logo.png" alt="Oliven Wood" class="logo-img">
+        <span class="logo-text">Oliven Wood</span>
+      </a>
+
+      <!-- RECHERCHE -->
+      <div class="search-box">
+        <input
+          type="text"
+          [placeholder]="'HEADER.SEARCH_PLACEHOLDER' | translate"
+          [(ngModel)]="motCle"
+          (input)="rechercher()">
+
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+        <ul class="search-results" *ngIf="resultats.length">
+          <li *ngFor="let p of resultats" (click)="allerVersProduit(p.id)">
+            <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
+            <span>{{ p.nom }} — {{ p.prix | number:'1.0-2' }} €</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="header-actions">
+
+        <!-- LANGUE -->
+        <div class="lang-switcher">
+          <button class="lang-btn" (click)="toggleLangueMenu()">
+            {{ langueActuelle.toUpperCase() }}
+            <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <div class="lang-menu" *ngIf="langueMenuOuvert">
+            <button *ngFor="let l of langues" (click)="changerLangue(l.code)" [class.active]="l.code === langueActuelle">
+              <span>{{ l.drapeau }}</span> {{ l.label }}
+            </button>
+          </div>
+        </div>
+
+        <!-- LOGIN / COMPTE -->
+        <!-- LOGIN / COMPTE -->
+        <div class="account-menu" *ngIf="!authService.isLoggedIn()">
+          <a routerLink="/login" class="action-btn">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <span>{{ 'HEADER.LOGIN' | translate }}</span>
+          </a>
+        </div>
+
+        <div class="account-menu" *ngIf="authService.isLoggedIn()">
+          <button class="action-btn" (click)="toggleAccountMenu()">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <span>{{ 'HEADER.LOGOUT' | translate }}</span>
+          </button>
+
+          <div class="account-dropdown" *ngIf="accountMenuOuvert">
+            <button (click)="deconnexion()">
+              {{ 'HEADER.LOGOUT_CONFIRM_SHORT' | translate }}
+            </button>
+          </div>
+        </div>
+
+        <!-- PANIER -->
+        <a routerLink="/panier" class="action-btn cart-btn">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.4a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/>
+            <circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/>
+          </svg>
+          <span>{{ 'HEADER.CART' | translate }}</span>
+          <span class="badge" *ngIf="nombreArticlesPanier > 0">{{ nombreArticlesPanier }}</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- NAVIGATION                                             -->
+    <!-- ===================================================== -->
+
+    <nav class="header-row-bottom">
+      <div class="container nav-inner">
+
+        <!-- ACCUEIL -->
+        <div class="nav-item">
+          <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            {{ 'HEADER.HOME' | translate }}
+          </a>
+        </div>
+
+        <!-- CATEGORIES -->
+        <div class="nav-item category-item" *ngFor="let c of categories" (mouseenter)="onCategoryEnter(c)" (mouseleave)="onCategoryLeave()">
+          <a [routerLink]="['/categories', c.id]">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h7l9 9-7 7-9-9V4z" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/>
+            </svg>
+            {{ c.nom }}
+          </a>
+
+          <div class="mega-menu" *ngIf="hoveredCategoryId === c.id">
+            <div class="mega-content" [class.home-menu]="isHomePage">
+              <div class="mega-products" *ngIf="productsByCategory[c.id]?.length; else loadingProducts">
+                <a *ngFor="let p of productsByCategory[c.id]" [routerLink]="['/produit', p.id]" class="mega-product">
+                  <span class="mega-product-title">{{ p.nom }}</span>
+                  <span class="mega-line"></span>
+                  <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
+                </a>
+              </div>
+
+              <ng-template #loadingProducts>
+                <p class="mega-empty">{{ 'HEADER.NO_PRODUCTS_YET' | translate }}</p>
+              </ng-template>
+
+              <a [routerLink]="['/categories', c.id]" class="mega-see-all">{{ 'HEADER.SEE_ALL' | translate }} →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- A PROPOS -->
+        <div class="nav-item" (mouseenter)="hoveredAbout=true" (mouseleave)="hoveredAbout=false">
+          <a routerLink="/a-propos">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/>
+              <line x1="12" y1="11" x2="12" y2="16.5" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="7.7" r="1" fill="currentColor"/>
+            </svg>
+            {{ 'HEADER.ABOUT' | translate }}
+          </a>
+
+          <div class="mega-menu small-menu" *ngIf="hoveredAbout">
+            <div class="mega-content" [class.home-menu]="isHomePage">
+              <div class="mega-title">{{ 'HEADER.CONTACT_US_TITLE' | translate }}</div>
+              <p>{{ 'HEADER.CONTACT_US_TEXT' | translate }}</p>
+              <a routerLink="/a-propos" class="mega-see-all">{{ 'HEADER.LEARN_MORE' | translate }} →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+  </ng-container>
+
+  <!-- ========================================================= -->
+  <!-- HEADER COMPACT APRÈS SCROLL                              -->
+  <!-- ========================================================= -->
+
+  <div class="header-compact" *ngIf="isScrolled">
+    <div class="container compact-inner">
+
+      <!-- LOGO -->
+      <a routerLink="/" class="compact-logo">
+        <img src="assets/images/logo.png" alt="Oliven Wood" class="compact-logo-img">
+        <span class="compact-logo-text">Oliven Wood</span>
+      </a>
+
+      <!-- CATEGORIES -->
+      <nav class="compact-categories">
+        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+          {{ 'HEADER.HOME' | translate }}
+        </a>
+        <a *ngFor="let c of categories" [routerLink]="['/categories', c.id]">{{ c.nom }}</a>
+      </nav>
+
+      <!-- ACTIONS COMPACTES -->
+      <div class="compact-actions">
+
+        <!-- LANGUE -->
+        <div class="lang-switcher">
+          <button class="lang-btn compact-icon-btn" (click)="toggleLangueMenu()">
+            {{ langueActuelle.toUpperCase() }}
+          </button>
+
+          <div class="lang-menu" *ngIf="langueMenuOuvert">
+            <button *ngFor="let l of langues" (click)="changerLangue(l.code)" [class.active]="l.code === langueActuelle">
+              <span>{{ l.drapeau }}</span> {{ l.label }}
+            </button>
+          </div>
+        </div>
+
+        <!-- RECHERCHE -->
+        <button class="compact-icon-btn" (click)="toggleCompactSearch()">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+                <!-- LOGIN / COMPTE -->
+        <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="compact-icon-btn">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+        </a>
+
+        <div class="account-menu" *ngIf="authService.isLoggedIn()">
+          <button class="compact-icon-btn" (click)="toggleAccountMenu()">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </button>
+
+          <div class="account-dropdown" *ngIf="accountMenuOuvert">
+            <button (click)="deconnexion()">
+              {{ 'HEADER.LOGOUT_CONFIRM_SHORT' | translate }}
+            </button>
+          </div>
+        </div>
+        <!-- PANIER -->
+        <a routerLink="/panier" class="compact-icon-btn compact-cart">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.4a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/>
+            <circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/>
+          </svg>
+          <span class="badge" *ngIf="nombreArticlesPanier > 0">{{ nombreArticlesPanier }}</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- RECHERCHE COMPACTE -->
+    <div class="compact-search-panel" *ngIf="compactSearchOpen">
+      <div class="container">
+        <div class="search-box">
+          <input
+            type="text"
+            [placeholder]="'HEADER.SEARCH_PLACEHOLDER' | translate"
+            [(ngModel)]="motCle"
+            (input)="rechercher()">
+
+          <ul class="search-results" *ngIf="resultats.length">
+            <li *ngFor="let p of resultats" (click)="allerVersProduit(p.id)">
+              <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
+              <span>{{ p.nom }} — {{ p.prix | number:'1.0-2' }} €</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+
+</header>

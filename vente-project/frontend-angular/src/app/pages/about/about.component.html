@@ -1,0 +1,83 @@
+
+
+<!-- ===== LOCALISATION ===== -->
+<section id="localisation" class="location-section">
+  <div class="location-container">
+
+    <div class="location-header">
+      <span class="location-eyebrow">
+        <span class="eyebrow-line"></span>
+        NOUS RENDRE VISITE
+        <span class="eyebrow-line"></span>
+      </span>
+      <h2 class="section-title">Notre localisation</h2>
+      <p class="location-subtitle">Retrouvez-nous facilement et venez découvrir notre univers.</p>
+    </div>
+
+    <div class="location-wrapper">
+
+      <div class="location-info">
+        <div class="address-block">
+          
+          <div>
+            <span class="address-title">Adresse</span>
+            <p>Ceinture de Mahdia,<br>Ksour Essef, Mahdia, Tunisie</p>
+          </div>
+        </div>
+
+        
+
+        <button class="btn-itinerary" (click)="obtenirItineraire()" [disabled]="chargementPosition">
+          <span class="button-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <span>{{ chargementPosition ? 'Localisation en cours...' : "Obtenir l'itinéraire" }}</span>
+          <span class="button-arrow">→</span>
+        </button>
+
+        <p class="itinerary-error" *ngIf="erreurPosition">{{ erreurPosition }}</p>
+      </div>
+
+      <div class="location-map">
+        <iframe [src]="mapUrl" loading="lazy" allowfullscreen></iframe>
+        
+          
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULAIRE DE CONTACT ===== -->
+<section id="contact" class="container page-section contact-form-section">
+  <h2 class="section-title">Contactez-nous</h2>
+  <p class="contact-form-subtitle">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
+
+  <form class="contact-form" (ngSubmit)="envoyerMessage()">
+    <div class="form-row">
+      <label for="contactNom">Nom</label>
+      <input type="text" id="contactNom" [(ngModel)]="contactNom" name="contactNom" placeholder="Votre nom" required>
+    </div>
+
+    <div class="form-row">
+      <label for="contactEmail">Email</label>
+      <input type="email" id="contactEmail" [(ngModel)]="contactEmail" name="contactEmail" placeholder="votre@email.com" required>
+    </div>
+
+    <div class="form-row">
+      <label for="contactMessage">Message</label>
+      <textarea id="contactMessage" [(ngModel)]="contactMessage" name="contactMessage" rows="5" placeholder="Votre message..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary" [disabled]="envoiEnCours">
+      {{ envoiEnCours ? 'Envoi en cours...' : 'Envoyer le message' }}
+    </button>
+
+    <p class="form-success" *ngIf="envoiReussi">✅ Votre message a bien été envoyé, merci !</p>
+    <p class="form-error" *ngIf="envoiErreur">{{ envoiErreur }}</p>
+  </form>
+</section>

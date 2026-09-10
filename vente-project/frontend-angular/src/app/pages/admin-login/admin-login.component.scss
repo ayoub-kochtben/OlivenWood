@@ -1,0 +1,10 @@
+.admin-login-section { display: flex; justify-content: center; padding: 80px 0; min-height: 60vh; align-items: center; }
+.admin-login-card {
+  background: #fff; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow);
+  width: 380px; max-width: 90%;
+  h1 { text-align: center; margin-bottom: 24px; font-size: 22px; }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+  .erreur { color: red; text-align: center; margin-bottom: 10px; }
+  button { margin-top: 6px; }
+}

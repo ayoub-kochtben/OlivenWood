@@ -1,0 +1,103 @@
+{
+  "HEADER": {
+    "SEARCH_PLACEHOLDER": "Search for a product...",
+    "LOGIN": "Login",
+    "MY_ACCOUNT": "My account",
+    "CART": "Cart",
+    "HOME": "Home",
+    "LOCATION": "Location",
+    "ABOUT": "About",
+    "OUR_LOCATION_TITLE": "Our location",
+    "OUR_LOCATION_TEXT": "Find us on the map, click for directions.",
+    "OPEN_MAPS": "Open in Google Maps →",
+    "CONTACT_US_TITLE": "Contact us",
+    "CONTACT_US_TEXT": "Feel free to get in touch.",
+    "LEARN_MORE": "Learn more →",
+    "SEE_ALL": "See all →",
+    "NO_PRODUCTS_YET": "No products yet."
+  },
+"FOOTER": {
+  "TAGLINE": "Carefully selected products, designed to bring quality and authenticity right to your door.",
+  "BRAND_TAGLINE": "QUALITY · AUTHENTICITY · TRUST",
+  "NAVIGATION": "Navigation",
+  "CATEGORIES": "Categories",
+  "ABOUT": "About",
+  "LOCATION": "Location",
+  "CONTACT": "Contact us",
+  "CONTACT_INTRO": "A question or need help? Our team is here for you.",
+  "PHONE": "Phone",
+  "EMAIL": "Email",
+  "ADDRESS": "Address",
+  "COPYRIGHT": "All rights reserved.",
+  "FOLLOW_US": "Follow us",
+  "MADE_WITH": "Made with care"
+},
+  "HOME": {
+    "TITLE": "Oliven Wood",
+    "SUBTITLE": "Unique olive wood creations, crafted with passion and know-how.",
+    "OUR_CREATIONS": "Our creations",
+    "OUR_CATEGORIES": "Our categories",
+    "POPULAR_PRODUCTS": "Popular products",
+    "OUR_STORY": "Our story",
+    "STORY_TEXT": "It all began in the heart of century-old olive groves, where olive wood, shaped by time and the Mediterranean sun, reveals unique grain and an incomparable hue. At Oliven Wood, every piece is hand-carved by passionate artisans who carry on a craft passed down through generations. From cutting boards to the most delicate bowls, we transform wood from retired olive trees into durable objects, full of history, designed to accompany your everyday life with authenticity and natural elegance.",
+    "SLIDE1_TITLE": "Born in the olive groves",
+    "SLIDE1_SUB": "A craft passed down through generations",
+    "SLIDE2_TITLE": "Hand-carved",
+    "SLIDE2_SUB": "Every piece shaped by passionate artisans",
+    "SLIDE3_TITLE": "Natural elegance",
+    "SLIDE3_SUB": "Durable objects, full of history",
+    "PROMO_TITLE": "Up to -50% this week",
+    "PROMO_TEXT": "Don't miss our exclusive offers on a selection of products.",
+    "PROMO_CTA": "Shop now"
+  },
+  "CATEGORY": {
+    "ALL_CATEGORIES": "All our categories",
+    "NO_PRODUCTS": "No products in this category yet."
+  },
+  "PRODUCT": {
+    "IN_STOCK": "In stock",
+    "OUT_OF_STOCK": "Out of stock",
+    "ADD_TO_CART": "Add to cart"
+  },
+  "ABOUT": {
+    "TITLE": "About us",
+    "LEAD": "Oliven Wood has been crafting olive wood objects for several years, with artisanal know-how and a careful selection of materials.",
+    "DID_YOU_KNOW": "Did you know?",
+    "FACT1": "We deliver to more than 20 cities.",
+    "FACT2": "Over 10,000 satisfied customers trust us.",
+    "FACT3": "Our products are carefully selected from certified suppliers.",
+    "FACT4": "Our customer service responds within 24 hours."
+  },
+  "LOCATION": {
+    "TITLE": "Our location",
+    "GET_DIRECTIONS": "Get directions",
+    "LOCATING": "Locating...",
+    "OPEN_MAPS": "Open in Maps"
+  },
+  "LOGIN": {
+    "LOGIN_TITLE": "Login",
+    "REGISTER_TITLE": "Create an account",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "LOGIN_BTN": "Sign in",
+    "REGISTER_BTN": "Sign up",
+    "SWITCH_TO_REGISTER": "No account? Sign up",
+    "SWITCH_TO_LOGIN": "Already have an account? Sign in",
+    "ERROR_LOGIN": "Incorrect email or password.",
+    "ERROR_REGISTER": "Error during registration."
+  },
+  "CART": {
+    "TITLE": "My cart",
+    "EMPTY": "Your cart is empty.",
+    "TOTAL": "Total:",
+    "CHECKOUT": "Checkout"
+  },
+  "AI_AGENT": {
+    "GREETING": "Hello 👋 I'm your assistant. How can I help you?",
+    "TITLE": "AI Assistant",
+    "PLACEHOLDER": "Ask your question...",
+    "SEARCHING": "Looking up information on \"{{query}}\"..."
+  }
+}

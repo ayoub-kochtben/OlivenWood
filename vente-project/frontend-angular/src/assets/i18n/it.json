@@ -1,0 +1,103 @@
+{
+  "HEADER": {
+    "SEARCH_PLACEHOLDER": "Cerca un prodotto...",
+    "LOGIN": "Accedi",
+    "MY_ACCOUNT": "Il mio account",
+    "CART": "Carrello",
+    "HOME": "Home",
+    "LOCATION": "Posizione",
+    "ABOUT": "Chi siamo",
+    "OUR_LOCATION_TITLE": "La nostra posizione",
+    "OUR_LOCATION_TEXT": "Trovaci sulla mappa, clicca per l'itinerario.",
+    "OPEN_MAPS": "Apri in Google Maps →",
+    "CONTACT_US_TITLE": "Contattaci",
+    "CONTACT_US_TEXT": "Non esitare a contattarci.",
+    "LEARN_MORE": "Scopri di più →",
+    "SEE_ALL": "Vedi tutto →",
+    "NO_PRODUCTS_YET": "Nessun prodotto per ora."
+  },
+  "FOOTER": {
+  "TAGLINE": "Prodotti accuratamente selezionati, pensati per portare qualità e autenticità direttamente a casa tua.",
+  "BRAND_TAGLINE": "QUALITÀ · AUTENTICITÀ · FIDUCIA",
+  "NAVIGATION": "Navigazione",
+  "CATEGORIES": "Categorie",
+  "ABOUT": "Chi siamo",
+  "LOCATION": "Posizione",
+  "CONTACT": "Contattaci",
+  "CONTACT_INTRO": "Una domanda o hai bisogno di aiuto? Il nostro team è a tua disposizione.",
+  "PHONE": "Telefono",
+  "EMAIL": "Email",
+  "ADDRESS": "Indirizzo",
+  "COPYRIGHT": "Tutti i diritti riservati.",
+  "FOLLOW_US": "Seguici",
+  "MADE_WITH": "Fatto con cura"
+},
+  "HOME": {
+    "TITLE": "Oliven Wood",
+    "SUBTITLE": "Creazioni uniche in legno d'ulivo, realizzate con passione e maestria artigianale.",
+    "OUR_CREATIONS": "Le nostre creazioni",
+    "OUR_CATEGORIES": "Le nostre categorie",
+    "POPULAR_PRODUCTS": "Prodotti popolari",
+    "OUR_STORY": "La nostra storia",
+    "STORY_TEXT": "Tutto è iniziato nel cuore di uliveti centenari, dove il legno d'ulivo, plasmato dal tempo e dal sole mediterraneo, rivela venature uniche e una tonalità incomparabile. Da Oliven Wood, ogni pezzo è intagliato a mano da artigiani appassionati che tramandano un sapere tramandato di generazione in generazione. Dai taglieri alle ciotole più delicate, trasformiamo il legno di ulivi a fine vita in oggetti duraturi, carichi di storia, pensati per accompagnare la tua quotidianità con autenticità ed eleganza naturale.",
+    "SLIDE1_TITLE": "Nata negli uliveti",
+    "SLIDE1_SUB": "Un sapere tramandato di generazione in generazione",
+    "SLIDE2_TITLE": "Scolpita a mano",
+    "SLIDE2_SUB": "Ogni pezzo plasmato da artigiani appassionati",
+    "SLIDE3_TITLE": "Eleganza naturale",
+    "SLIDE3_SUB": "Oggetti duraturi, carichi di storia",
+    "PROMO_TITLE": "Fino al -50% questa settimana",
+    "PROMO_TEXT": "Non perdere le nostre offerte esclusive su una selezione di prodotti.",
+    "PROMO_CTA": "Acquista ora"
+  },
+  "CATEGORY": {
+    "ALL_CATEGORIES": "Tutte le nostre categorie",
+    "NO_PRODUCTS": "Nessun prodotto in questa categoria al momento."
+  },
+  "PRODUCT": {
+    "IN_STOCK": "Disponibile",
+    "OUT_OF_STOCK": "Esaurito",
+    "ADD_TO_CART": "Aggiungi al carrello"
+  },
+  "ABOUT": {
+    "TITLE": "Chi siamo",
+    "LEAD": "Oliven Wood realizza oggetti in legno d'ulivo da diversi anni, con maestria artigianale e un'accurata selezione dei materiali.",
+    "DID_YOU_KNOW": "Lo sapevi?",
+    "FACT1": "Consegniamo in oltre 20 città.",
+    "FACT2": "Oltre 10.000 clienti soddisfatti si fidano di noi.",
+    "FACT3": "I nostri prodotti sono selezionati con cura da fornitori certificati.",
+    "FACT4": "Il nostro servizio clienti risponde entro 24 ore."
+  },
+  "LOCATION": {
+    "TITLE": "La nostra posizione",
+    "GET_DIRECTIONS": "Ottieni indicazioni",
+    "LOCATING": "Localizzazione in corso...",
+    "OPEN_MAPS": "Apri in Maps"
+  },
+  "LOGIN": {
+    "LOGIN_TITLE": "Accedi",
+    "REGISTER_TITLE": "Crea un account",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "FIRST_NAME": "Nome",
+    "LAST_NAME": "Cognome",
+    "LOGIN_BTN": "Accedi",
+    "REGISTER_BTN": "Registrati",
+    "SWITCH_TO_REGISTER": "Non hai un account? Registrati",
+    "SWITCH_TO_LOGIN": "Hai già un account? Accedi",
+    "ERROR_LOGIN": "Email o password errati.",
+    "ERROR_REGISTER": "Errore durante la registrazione."
+  },
+  "CART": {
+    "TITLE": "Il mio carrello",
+    "EMPTY": "Il tuo carrello è vuoto.",
+    "TOTAL": "Totale:",
+    "CHECKOUT": "Procedi all'ordine"
+  },
+  "AI_AGENT": {
+    "GREETING": "Ciao 👋 Sono il tuo assistente. Come posso aiutarti?",
+    "TITLE": "Assistente IA",
+    "PLACEHOLDER": "Fai la tua domanda...",
+    "SEARCHING": "Sto cercando informazioni su \"{{query}}\"..."
+  }
+}

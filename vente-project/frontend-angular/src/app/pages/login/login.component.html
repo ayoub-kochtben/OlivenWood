@@ -1,0 +1,62 @@
+<section class="container page-section login-section">
+  <div class="login-card">
+    <h1>{{ modeInscription ? 'Créer un compte' : 'Connexion' }}</h1>
+    <p class="erreur" *ngIf="erreur">{{ erreur }}</p>
+
+    <form *ngIf="!modeInscription" (ngSubmit)="seConnecter()">
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        (focus)="erreur = ''"
+        required>
+      <input
+        type="password"
+        placeholder="Mot de passe"
+        [(ngModel)]="motDePasse"
+        name="motDePasse"
+        (focus)="erreur = ''"
+        required>
+      <button type="submit" class="btn-primary">Se connecter</button>
+    </form>
+
+    <form *ngIf="modeInscription" (ngSubmit)="sInscrire()">
+      <input
+        type="text"
+        placeholder="Nom"
+        [(ngModel)]="nom"
+        name="nom"
+        (focus)="erreur = ''"
+        required>
+      <input
+        type="text"
+        placeholder="Prénom"
+        [(ngModel)]="prenom"
+        name="prenom"
+        (focus)="erreur = ''"
+        required>
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        (focus)="erreur = ''"
+        required>
+      <input
+        type="password"
+        placeholder="Mot de passe"
+        [(ngModel)]="motDePasse"
+        name="motDePasse"
+        (focus)="erreur = ''"
+        required>
+      <button type="submit" class="btn-primary">S'inscrire</button>
+    </form>
+
+    <p class="switch">
+      <a (click)="modeInscription = !modeInscription; erreur = ''">
+        {{ modeInscription ? 'Déjà un compte ? Se connecter' : 'Pas de compte ? S\'inscrire' }}
+      </a>
+    </p>
+  </div>
+</section>
