@@ -1,37 +1,3 @@
-"""
-================================================================================
-RAG PIPELINE UNIFIÉ — Ingestion + Retrieval + Generation
-================================================================================
-
-Fusionne dans un seul système :
-  - Ingestion  : fichiers .txt (RecursiveCharacterTextSplitter)
-                 et fichiers .pdf multimodaux (texte + tableaux + images,
-                 via `unstructured`, avec résumés IA pour le contenu enrichi)
-  - Retrieval  : Hybrid Search (BM25 + recherche vectorielle Chroma),
-                 Multi-Query (génération de variantes de la question),
-                 Reciprocal Rank Fusion (RRF) pour fusionner les résultats,
-                 Reranking (CrossEncoder) pour affiner le classement final
-  - Generation : réponse "history-aware" (reformulation de la question à
-                 partir de l'historique) + prompt multimodal (texte/tableaux/
-                 images) envoyé à un modèle Ollama (texte ou vision)
-
-Installation (environnement virtuel recommandé) :
-    pip install langchain langchain-community langchain-chroma \
-                langchain-huggingface langchain-ollama langchain-text-splitters \
-                langchain-classic sentence-transformers rank-bm25 \
-                "unstructured[pdf]" pydantic python-dotenv chromadb
-
-Prérequis :
-    - Ollama installé et démarré (`ollama serve`)
-    - Modèles téléchargés : `ollama pull llama3` et, pour le PDF multimodal,
-      `ollama pull llava`
-
-Utilisation :
-    python rag_pipeline.py ingest docs/            # ingère un dossier de .txt
-    python rag_pipeline.py ingest docs/rapport.pdf  # ingère un PDF multimodal
-    python rag_pipeline.py chat                     # lance le chat interactif
-================================================================================
-"""
 import pickle
 
 import os
@@ -88,7 +54,10 @@ class RAGConfig:
     pdf_combine_under_n_chars = 500
 
     # LLM texte (Groq en prod, Ollama en fallback local)
-    groq_model = "llama-3.3-70b-versatile"
+    # NB : "llama-3.3-70b-versatile" est désormais réservé aux comptes Enterprise
+    # (contact sales) et renvoie 404 avec une clé API standard. On utilise donc
+    # un modèle GPT-OSS, accessible avec une clé API classique.
+    groq_model = "openai/gpt-oss-120b"
     llm_model = "llama3"          # utilisé seulement si Ollama (fallback local)
     vision_model = "llava"        # modèle vision : uniquement disponible via Ollama
     temperature = 0
