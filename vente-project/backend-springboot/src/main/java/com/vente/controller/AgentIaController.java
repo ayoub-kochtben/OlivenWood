@@ -30,7 +30,8 @@ public class AgentIaController {
             Map response = restTemplate.postForObject(aiServiceUrl + "/chat", request, Map.class);
             return response;
         } catch (Exception e) {
-            return Map.of("answer", "Le service IA est momentanément indisponible. Réessayez dans un instant.");
+            e.printStackTrace();
+            return Map.of("answer", "Erreur AI : " + e.getMessage());
         }
     }
 }

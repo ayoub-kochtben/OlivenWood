@@ -4,7 +4,7 @@ langchain
 langchain-community
 langchain-chroma
 langchain-huggingface
-langchain-ollama
+langchain-groq
 langchain-text-splitters
 langchain-classic
 sentence-transformers

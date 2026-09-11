@@ -50,7 +50,15 @@ from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_community.retrievers import BM25Retriever
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from langchain_ollama import ChatOllama
+
+# LLM texte : Groq en priorité (cloud, rapide, pas d'infra à gérer),
+# fallback sur Ollama en local si pas de clé Groq (utile en dev sans réseau).
+from langchain_groq import ChatGroq
+try:
+    from langchain_ollama import ChatOllama
+except ImportError:
+    ChatOllama = None
+
 
 try:
     # Nom récent du package qui héberge EnsembleRetriever
@@ -79,9 +87,10 @@ class RAGConfig:
     pdf_new_after_n_chars = 2400
     pdf_combine_under_n_chars = 500
 
-    # LLM
-    llm_model = "llama3"
-    vision_model = "llava"
+    # LLM texte (Groq en prod, Ollama en fallback local)
+    groq_model = "llama-3.3-70b-versatile"
+    llm_model = "llama3"          # utilisé seulement si Ollama (fallback local)
+    vision_model = "llava"        # modèle vision : uniquement disponible via Ollama
     temperature = 0
 
     # Retrieval
@@ -98,6 +107,7 @@ class QueryVariations(BaseModel):
     """Schéma de sortie structurée pour la génération multi-query."""
     queries: List[str]
 
+
 def save_documents_cache(documents: List[Document], path: str = "db/documents_cache.pkl"):
     """Sauvegarde les documents ingérés pour pouvoir reconstruire BM25 plus tard."""
     with open(path, "wb") as f:
@@ -110,6 +120,43 @@ def load_documents_cache(path: str = "db/documents_cache.pkl") -> Optional[List[
         return None
     with open(path, "rb") as f:
         return pickle.load(f)
+
+
+# ================================================================
+# 1bis. FABRIQUE DE LLM (Groq en prod, Ollama en fallback local)
+# ================================================================
+
+def get_text_llm(config: RAGConfig = RAGConfig, temperature: Optional[float] = None):
+    """Retourne le LLM texte à utiliser : Groq si GROQ_API_KEY est définie
+    (typiquement sur Railway), sinon Ollama en local (si installé)."""
+    temp = config.temperature if temperature is None else temperature
+    groq_api_key = os.environ.get("GROQ_API_KEY")
+
+    if groq_api_key:
+        return ChatGroq(model=config.groq_model, api_key=groq_api_key, temperature=temp)
+
+    if ChatOllama is not None:
+        return ChatOllama(model=config.llm_model, temperature=temp)
+
+    raise RuntimeError(
+        "Aucun LLM disponible : définis GROQ_API_KEY (recommandé en prod) "
+        "ou installe/lance Ollama en local."
+    )
+
+
+def get_vision_llm(config: RAGConfig = RAGConfig, temperature: Optional[float] = None):
+    """Retourne le LLM vision (utilisé uniquement pour les PDF contenant des
+    images). Nécessite Ollama en local avec le modèle `llava` — pas
+    disponible sur Railway sans Ollama déployé séparément."""
+    temp = config.temperature if temperature is None else temperature
+    if ChatOllama is None:
+        raise RuntimeError(
+            "Le traitement d'images nécessite Ollama (modèle llava), "
+            "non disponible dans cet environnement."
+        )
+    return ChatOllama(model=config.vision_model, temperature=temp)
+
+
 # ================================================================
 # 2. INGESTION — TEXTE (.txt)
 # ================================================================
@@ -212,10 +259,9 @@ def create_ai_enhanced_summary(
     config: RAGConfig = RAGConfig,
 ) -> str:
     """Crée une description enrichie et recherchable pour un chunk mixte
-    (texte + tableaux + images), via un modèle Ollama (vision si images)."""
+    (texte + tableaux + images), via un LLM (vision si images, texte sinon)."""
     try:
-        model_name = config.vision_model if images else config.llm_model
-        llm = ChatOllama(model=model_name, temperature=config.temperature)
+        llm = get_vision_llm(config) if images else get_text_llm(config)
 
         prompt_text = f"""You are creating a searchable description for document content retrieval.
 
@@ -373,7 +419,7 @@ def build_hybrid_retriever(
 # ================================================================
 
 def generate_query_variations(
-    llm: ChatOllama, query: str, n: int = RAGConfig.num_query_variations
+    llm, query: str, n: int = RAGConfig.num_query_variations
 ) -> List[str]:
     """Demande au LLM de reformuler la question sous plusieurs angles."""
     llm_structured = llm.with_structured_output(QueryVariations)
@@ -455,7 +501,7 @@ def rerank_documents(
 # ================================================================
 
 def contextualize_question(
-    llm: ChatOllama, chat_history: List, question: str
+    llm, chat_history: List, question: str
 ) -> str:
     """Réécrit la question courante en une question autonome, en tenant
     compte de l'historique de conversation (utile pour le multi-tour)."""
@@ -515,8 +561,7 @@ def build_generation_prompt(query: str, documents: List[Document]) -> Tuple[str,
 def generate_answer(query: str, documents: List[Document], config: RAGConfig = RAGConfig) -> str:
     """Envoie le contexte (texte/tableaux/images) au LLM et récupère la réponse."""
     prompt_text, images = build_generation_prompt(query, documents)
-    model_name = config.vision_model if images else config.llm_model
-    llm = ChatOllama(model=model_name, temperature=config.temperature)
+    llm = get_vision_llm(config) if images else get_text_llm(config)
 
     if images:
         message_content = [{"type": "text", "text": prompt_text}]
@@ -544,7 +589,7 @@ class RAGPipeline:
 
     def __init__(self, config: RAGConfig = RAGConfig):
         self.config = config
-        self.llm = ChatOllama(model=config.llm_model, temperature=config.temperature)
+        self.llm = get_text_llm(config)
         self.vectorstore: Optional[Chroma] = None
         self.bm25_retriever: Optional[BM25Retriever] = None
         self.hybrid_retriever: Optional[EnsembleRetriever] = None
@@ -582,6 +627,7 @@ class RAGPipeline:
         self.hybrid_retriever = build_hybrid_retriever(self.vectorstore, self.bm25_retriever, self.config)
         save_documents_cache(documents)
         print("🎉 Ingestion terminée, pipeline prêt.")
+
     def retrieve(self, query: str, verbose: bool = False) -> List[Document]:
         """Pipeline de récupération complet :
         multi-query -> hybrid search (ou vecteur seul) -> RRF -> reranking."""
