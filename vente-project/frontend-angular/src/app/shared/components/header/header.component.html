@@ -125,27 +125,6 @@
           </div>
         </div>
 
-        <!-- LOCALISATION -->
-        <div class="nav-item" (mouseenter)="hoveredLocation=true" (mouseleave)="hoveredLocation=false">
-          <a routerLink="/localisation">
-            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
-              <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" stroke="currentColor" stroke-width="1.7"/>
-              <circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.7"/>
-            </svg>
-            {{ 'HEADER.LOCATION' | translate }}
-          </a>
-
-          <div class="mega-menu small-menu" *ngIf="hoveredLocation">
-            <div class="mega-content" [class.home-menu]="isHomePage">
-              <div class="mega-title">{{ 'HEADER.OUR_LOCATION_TITLE' | translate }}</div>
-              <p>{{ 'HEADER.OUR_LOCATION_TEXT' | translate }}</p>
-              <a [href]="lienGoogleMaps" target="_blank" rel="noopener noreferrer" class="mega-see-all">
-                {{ 'HEADER.OPEN_MAPS' | translate }}
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </nav>
 

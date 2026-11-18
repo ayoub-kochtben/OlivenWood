@@ -1,37 +1,31 @@
 {
   "HEADER": {
     "SEARCH_PLACEHOLDER": "Search for a product...",
-    "LOGIN": "Login",
-    "MY_ACCOUNT": "My account",
-    "CART": "Cart",
     "HOME": "Home",
-    "LOCATION": "Location",
     "ABOUT": "About",
-    "OUR_LOCATION_TITLE": "Our location",
-    "OUR_LOCATION_TEXT": "Find us on the map, click for directions.",
-    "OPEN_MAPS": "Open in Google Maps →",
     "CONTACT_US_TITLE": "Contact us",
     "CONTACT_US_TEXT": "Feel free to get in touch.",
     "LEARN_MORE": "Learn more →",
     "SEE_ALL": "See all →",
     "NO_PRODUCTS_YET": "No products yet."
   },
-"FOOTER": {
-  "TAGLINE": "Carefully selected products, designed to bring quality and authenticity right to your door.",
-  "BRAND_TAGLINE": "QUALITY · AUTHENTICITY · TRUST",
-  "NAVIGATION": "Navigation",
-  "CATEGORIES": "Categories",
-  "ABOUT": "About",
-  "LOCATION": "Location",
-  "CONTACT": "Contact us",
-  "CONTACT_INTRO": "A question or need help? Our team is here for you.",
-  "PHONE": "Phone",
-  "EMAIL": "Email",
-  "ADDRESS": "Address",
-  "COPYRIGHT": "All rights reserved.",
-  "FOLLOW_US": "Follow us",
-  "MADE_WITH": "Made with care"
-},
+  "FOOTER": {
+    "TAGLINE": "Carefully crafted creations, designed to bring quality and authenticity right to your door.",
+    "BRAND_TAGLINE": "QUALITY · AUTHENTICITY · TRUST",
+    "NAVIGATION": "Navigation",
+    "CATEGORIES": "Categories",
+    "ABOUT": "About",
+    "LOCATION": "Location",
+    "CONTACT": "Contact us",
+    "CONTACT_INTRO": "A question or need help? Our team is here for you.",
+    "PHONE": "Phone",
+    "EMAIL": "Email",
+    "ADDRESS": "Address",
+    "COPYRIGHT": "All rights reserved.",
+    "FOLLOW_US": "Follow us",
+    "MADE_WITH": "Made with care",
+    "SEE_LOCATION": "View our location"
+  },
   "HOME": {
     "TITLE": "Oliven Wood",
     "SUBTITLE": "Unique olive wood creations, crafted with passion and know-how.",
@@ -45,10 +39,7 @@
     "SLIDE2_TITLE": "Hand-carved",
     "SLIDE2_SUB": "Every piece shaped by passionate artisans",
     "SLIDE3_TITLE": "Natural elegance",
-    "SLIDE3_SUB": "Durable objects, full of history",
-    "PROMO_TITLE": "Up to -50% this week",
-    "PROMO_TEXT": "Don't miss our exclusive offers on a selection of products.",
-    "PROMO_CTA": "Shop now"
+    "SLIDE3_SUB": "Durable objects, full of history"
   },
   "CATEGORY": {
     "ALL_CATEGORIES": "All our categories",
@@ -57,7 +48,14 @@
   "PRODUCT": {
     "IN_STOCK": "In stock",
     "OUT_OF_STOCK": "Out of stock",
-    "ADD_TO_CART": "Add to cart"
+    "DIM_LENGTH": "Length",
+    "DIM_WIDTH": "Width",
+    "DIM_HEIGHT": "Height",
+    "DIM_DIAMETER": "Diameter",
+    "ORDER_WHATSAPP": "Order via WhatsApp",
+    "CONTACT_US": "Contact us",
+    "SELECTION": "Selection",
+    "YOU_MAY_LIKE": "You may also like"
   },
   "ABOUT": {
     "TITLE": "About us",
@@ -69,35 +67,39 @@
     "FACT4": "Our customer service responds within 24 hours."
   },
   "LOCATION": {
+    "EYEBROW": "COME AND VISIT US",
     "TITLE": "Our location",
+    "VISIT_SUBTITLE": "Find us easily and come discover our world.",
+    "ADDRESS_TITLE": "Address",
+    "ADDRESS_LINE1": "Ceinture de Mahdia,",
+    "ADDRESS_LINE2": "Ksour Essef, Mahdia, Tunisia",
+    "STATUS_TITLE": "We are at your disposal",
+    "STATUS_SUB": "Come and discover us",
     "GET_DIRECTIONS": "Get directions",
     "LOCATING": "Locating...",
-    "OPEN_MAPS": "Open in Maps"
+    "GEO_ERROR": "Position unavailable: allow geolocation, or choose your starting point in Google Maps.",
+    "SHOP": "Our shop",
+    "SHOP_CITY": "Ksour Essef, Mahdia"
   },
-  "LOGIN": {
-    "LOGIN_TITLE": "Login",
-    "REGISTER_TITLE": "Create an account",
+  "CONTACT": {
+    "TITLE": "Contact us",
+    "SUBTITLE": "A question or a special request? Write to us, we will answer quickly.",
+    "NAME": "Name",
     "EMAIL": "Email",
-    "PASSWORD": "Password",
-    "FIRST_NAME": "First name",
-    "LAST_NAME": "Last name",
-    "LOGIN_BTN": "Sign in",
-    "REGISTER_BTN": "Sign up",
-    "SWITCH_TO_REGISTER": "No account? Sign up",
-    "SWITCH_TO_LOGIN": "Already have an account? Sign in",
-    "ERROR_LOGIN": "Incorrect email or password.",
-    "ERROR_REGISTER": "Error during registration."
-  },
-  "CART": {
-    "TITLE": "My cart",
-    "EMPTY": "Your cart is empty.",
-    "TOTAL": "Total:",
-    "CHECKOUT": "Checkout"
+    "MESSAGE": "Message",
+    "NAME_PLACEHOLDER": "Your name",
+    "EMAIL_PLACEHOLDER": "your@email.com",
+    "MESSAGE_PLACEHOLDER": "Your message...",
+    "SEND": "Send message",
+    "SENDING": "Sending...",
+    "SUCCESS": "✅ Your message has been sent, thank you!",
+    "ERROR_FILL": "Please fill in all the fields.",
+    "ERROR": "An error occurred, please try again later."
   },
   "AI_AGENT": {
     "GREETING": "Hello 👋 I'm your assistant. How can I help you?",
     "TITLE": "AI Assistant",
     "PLACEHOLDER": "Ask your question...",
-    "SEARCHING": "Looking up information on \"{{query}}\"..."
+    "TYPING": "Typing..."
   }
 }

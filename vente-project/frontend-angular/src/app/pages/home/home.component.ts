@@ -6,8 +6,6 @@ import { Product } from '../../core/models/product.model';
 
 interface StorySlide {
   image: string;
-  titre: string;
-  soustitre: string;
 }
 
 @Component({
@@ -24,21 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   produitsCarrousel: Product[] = [];
 
   storySlides: StorySlide[] = [
-    {
-      image: 'assets/images/history1.png',
-      titre: 'Née au cœur des oliveraies',
-      soustitre: "Un savoir-faire transmis de génération en génération"
-    },
-    {
-      image: 'assets/images/history2.png',
-      titre: 'Sculptée à la main',
-      soustitre: 'Chaque pièce façonnée par des artisans passionnés'
-    },
-    {
-      image: 'assets/images/history3.png',
-      titre: 'Une élégance naturelle',
-      soustitre: "Des objets durables, chargés d'histoire"
-    }
+    { image: 'assets/images/history1.png' },
+    { image: 'assets/images/history2.png' },
+    { image: 'assets/images/history3.png' }
   ];
   currentSlide = 0;
   private autoplayId: any;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-location',
@@ -13,7 +14,7 @@ export class LocationComponent {
   chargementPosition = false;
   erreurPosition = '';
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private translate: TranslateService) {
     const url = `https://www.google.com/maps?q=${this.latitude},${this.longitude}&z=17&output=embed`;
     this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -36,7 +37,7 @@ export class LocationComponent {
       },
       () => {
         this.chargementPosition = false;
-        this.erreurPosition = "Position indisponible : autorisez la géolocalisation, ou choisissez votre point de départ dans Google Maps.";
+        this.erreurPosition = this.translate.instant('LOCATION.GEO_ERROR');
         this.ouvrirDestinationSeule();
       }
     );

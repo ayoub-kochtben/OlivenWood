@@ -1,5 +1,5 @@
 <section class="container page-section">
-  <h1 class="section-title">Toutes nos catégories</h1>
+  <h1 class="section-title">{{ 'CATEGORY.ALL_CATEGORIES' | translate }}</h1>
   <div class="category-grid">
     <a *ngFor="let c of categories" [routerLink]="['/categories', c.id]" class="category-card">
       <img [src]="c.imageUrl" [alt]="c.nom">

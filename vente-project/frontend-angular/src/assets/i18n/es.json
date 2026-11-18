@@ -1,37 +1,31 @@
 {
   "HEADER": {
     "SEARCH_PLACEHOLDER": "Buscar un producto...",
-    "LOGIN": "Iniciar sesión",
-    "MY_ACCOUNT": "Mi cuenta",
-    "CART": "Carrito",
     "HOME": "Inicio",
-    "LOCATION": "Ubicación",
     "ABOUT": "Sobre nosotros",
-    "OUR_LOCATION_TITLE": "Nuestra ubicación",
-    "OUR_LOCATION_TEXT": "Encuéntranos en el mapa, haz clic para la ruta.",
-    "OPEN_MAPS": "Abrir en Google Maps →",
     "CONTACT_US_TITLE": "Contáctanos",
     "CONTACT_US_TEXT": "No dudes en contactarnos.",
     "LEARN_MORE": "Saber más →",
     "SEE_ALL": "Ver todo →",
     "NO_PRODUCTS_YET": "Aún no hay productos."
   },
- "FOOTER": {
-  "TAGLINE": "Productos cuidadosamente seleccionados, pensados para llevar calidad y autenticidad directamente a tu puerta.",
-  "BRAND_TAGLINE": "CALIDAD · AUTENTICIDAD · CONFIANZA",
-  "NAVIGATION": "Navegación",
-  "CATEGORIES": "Categorías",
-  "ABOUT": "Sobre nosotros",
-  "LOCATION": "Ubicación",
-  "CONTACT": "Contáctanos",
-  "CONTACT_INTRO": "¿Tienes una pregunta o necesitas ayuda? Nuestro equipo está a tu disposición.",
-  "PHONE": "Teléfono",
-  "EMAIL": "Correo electrónico",
-  "ADDRESS": "Dirección",
-  "COPYRIGHT": "Todos los derechos reservados.",
-  "FOLLOW_US": "Síguenos",
-  "MADE_WITH": "Hecho con cuidado"
-},
+  "FOOTER": {
+    "TAGLINE": "Creaciones cuidadosamente elaboradas, pensadas para llevar calidad y autenticidad directamente a tu puerta.",
+    "BRAND_TAGLINE": "CALIDAD · AUTENTICIDAD · CONFIANZA",
+    "NAVIGATION": "Navegación",
+    "CATEGORIES": "Categorías",
+    "ABOUT": "Sobre nosotros",
+    "LOCATION": "Ubicación",
+    "CONTACT": "Contáctanos",
+    "CONTACT_INTRO": "¿Tienes una pregunta o necesitas ayuda? Nuestro equipo está a tu disposición.",
+    "PHONE": "Teléfono",
+    "EMAIL": "Correo electrónico",
+    "ADDRESS": "Dirección",
+    "COPYRIGHT": "Todos los derechos reservados.",
+    "FOLLOW_US": "Síguenos",
+    "MADE_WITH": "Hecho con esmero",
+    "SEE_LOCATION": "Ver nuestra ubicación"
+  },
   "HOME": {
     "TITLE": "Oliven Wood",
     "SUBTITLE": "Creaciones únicas en madera de olivo, elaboradas con pasión y sabiduría artesanal.",
@@ -45,10 +39,7 @@
     "SLIDE2_TITLE": "Tallada a mano",
     "SLIDE2_SUB": "Cada pieza moldeada por artesanos apasionados",
     "SLIDE3_TITLE": "Elegancia natural",
-    "SLIDE3_SUB": "Objetos duraderos, cargados de historia",
-    "PROMO_TITLE": "Hasta -50% esta semana",
-    "PROMO_TEXT": "No te pierdas nuestras ofertas exclusivas en una selección de productos.",
-    "PROMO_CTA": "Comprar ahora"
+    "SLIDE3_SUB": "Objetos duraderos, cargados de historia"
   },
   "CATEGORY": {
     "ALL_CATEGORIES": "Todas nuestras categorías",
@@ -57,7 +48,14 @@
   "PRODUCT": {
     "IN_STOCK": "En stock",
     "OUT_OF_STOCK": "Agotado",
-    "ADD_TO_CART": "Añadir al carrito"
+    "DIM_LENGTH": "Largo",
+    "DIM_WIDTH": "Ancho",
+    "DIM_HEIGHT": "Alto",
+    "DIM_DIAMETER": "Diámetro",
+    "ORDER_WHATSAPP": "Pedir por WhatsApp",
+    "CONTACT_US": "Contáctanos",
+    "SELECTION": "Selección",
+    "YOU_MAY_LIKE": "También te gustará"
   },
   "ABOUT": {
     "TITLE": "Sobre nosotros",
@@ -69,35 +67,39 @@
     "FACT4": "Nuestro servicio al cliente responde en menos de 24 horas."
   },
   "LOCATION": {
+    "EYEBROW": "VEN A VISITARNOS",
     "TITLE": "Nuestra ubicación",
+    "VISIT_SUBTITLE": "Encuéntranos fácilmente y ven a descubrir nuestro mundo.",
+    "ADDRESS_TITLE": "Dirección",
+    "ADDRESS_LINE1": "Ceinture de Mahdia,",
+    "ADDRESS_LINE2": "Ksour Essef, Mahdia, Túnez",
+    "STATUS_TITLE": "Estamos a tu disposición",
+    "STATUS_SUB": "Ven a conocernos",
     "GET_DIRECTIONS": "Obtener ruta",
     "LOCATING": "Localizando...",
-    "OPEN_MAPS": "Abrir en Maps"
+    "GEO_ERROR": "Posición no disponible: activa la geolocalización o elige tu punto de partida en Google Maps.",
+    "SHOP": "Nuestra tienda",
+    "SHOP_CITY": "Ksour Essef, Mahdia"
   },
-  "LOGIN": {
-    "LOGIN_TITLE": "Iniciar sesión",
-    "REGISTER_TITLE": "Crear una cuenta",
+  "CONTACT": {
+    "TITLE": "Contáctanos",
+    "SUBTITLE": "¿Una pregunta o una solicitud especial? Escríbenos, te responderemos rápidamente.",
+    "NAME": "Nombre",
     "EMAIL": "Correo electrónico",
-    "PASSWORD": "Contraseña",
-    "FIRST_NAME": "Nombre",
-    "LAST_NAME": "Apellido",
-    "LOGIN_BTN": "Iniciar sesión",
-    "REGISTER_BTN": "Registrarse",
-    "SWITCH_TO_REGISTER": "¿No tienes cuenta? Regístrate",
-    "SWITCH_TO_LOGIN": "¿Ya tienes cuenta? Inicia sesión",
-    "ERROR_LOGIN": "Correo o contraseña incorrectos.",
-    "ERROR_REGISTER": "Error durante el registro."
-  },
-  "CART": {
-    "TITLE": "Mi carrito",
-    "EMPTY": "Tu carrito está vacío.",
-    "TOTAL": "Total:",
-    "CHECKOUT": "Finalizar compra"
+    "MESSAGE": "Mensaje",
+    "NAME_PLACEHOLDER": "Tu nombre",
+    "EMAIL_PLACEHOLDER": "tu@email.com",
+    "MESSAGE_PLACEHOLDER": "Tu mensaje...",
+    "SEND": "Enviar mensaje",
+    "SENDING": "Enviando...",
+    "SUCCESS": "✅ Tu mensaje se ha enviado, ¡gracias!",
+    "ERROR_FILL": "Por favor, rellena todos los campos.",
+    "ERROR": "Ha ocurrido un error, inténtalo de nuevo más tarde."
   },
   "AI_AGENT": {
     "GREETING": "Hola 👋 Soy tu asistente. ¿Cómo puedo ayudarte?",
     "TITLE": "Asistente IA",
     "PLACEHOLDER": "Haz tu pregunta...",
-    "SEARCHING": "Buscando información sobre \"{{query}}\"..."
+    "TYPING": "Escribiendo..."
   }
 }

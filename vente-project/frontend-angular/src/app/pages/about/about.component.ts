@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -8,13 +9,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  faits = [
-    'Nous livrons dans plus de 20 villes.',
-    'Plus de 10 000 clients satisfaits nous font confiance.',
-    'Nos produits sont sélectionnés avec soin auprès de fournisseurs certifiés.',
-    'Notre service client répond en moins de 24h.'
-  ];
-
   // ----- Localisation -----
   latitude = 35.44533566310324;
   longitude = 11.01669485091932;
@@ -32,7 +26,11 @@ export class AboutComponent {
 
   private readonly emailDestinataire = 'ayoubkochtbene@gmail.com';
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private http: HttpClient,
+    private translate: TranslateService
+  ) {
     const url = `https://www.google.com/maps?q=${this.latitude},${this.longitude}&z=17&output=embed`;
     this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -55,7 +53,7 @@ export class AboutComponent {
       },
       () => {
         this.chargementPosition = false;
-        this.erreurPosition = "Position indisponible : autorisez la géolocalisation, ou choisissez votre point de départ dans Google Maps.";
+        this.erreurPosition = this.translate.instant('LOCATION.GEO_ERROR');
         this.ouvrirDestinationSeule();
       }
     );
@@ -68,7 +66,7 @@ export class AboutComponent {
 
   envoyerMessage(): void {
     if (!this.contactNom.trim() || !this.contactEmail.trim() || !this.contactMessage.trim()) {
-      this.envoiErreur = 'Merci de remplir tous les champs.';
+      this.envoiErreur = this.translate.instant('CONTACT.ERROR_FILL');
       return;
     }
 
@@ -93,7 +91,7 @@ export class AboutComponent {
       },
       error: () => {
         this.envoiEnCours = false;
-        this.envoiErreur = "Une erreur est survenue, réessayez plus tard.";
+        this.envoiErreur = this.translate.instant('CONTACT.ERROR');
       }
     });
   }

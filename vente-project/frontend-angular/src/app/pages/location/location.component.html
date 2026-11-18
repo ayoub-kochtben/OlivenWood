@@ -7,16 +7,16 @@
 
       <span class="location-eyebrow">
         <span class="eyebrow-line"></span>
-        NOUS RENDRE VISITE
+        {{ 'LOCATION.EYEBROW' | translate }}
         <span class="eyebrow-line"></span>
       </span>
 
       <h1 class="section-title">
-        Notre localisation
+        {{ 'LOCATION.TITLE' | translate }}
       </h1>
 
       <p class="location-subtitle">
-        Retrouvez-nous facilement et venez découvrir notre univers.
+        {{ 'LOCATION.VISIT_SUBTITLE' | translate }}
       </p>
 
     </div>
@@ -50,12 +50,12 @@
 
           <div>
             <span class="address-title">
-              Adresse
+              {{ 'LOCATION.ADDRESS_TITLE' | translate }}
             </span>
 
             <p>
-              Ceinture de Mahdia,<br>
-              Ksour Essef, Mahdia, Tunisie
+              {{ 'LOCATION.ADDRESS_LINE1' | translate }}<br>
+              {{ 'LOCATION.ADDRESS_LINE2' | translate }}
             </p>
           </div>
 
@@ -69,11 +69,11 @@
 
           <div>
             <strong>
-              Nous sommes à votre disposition
+              {{ 'LOCATION.STATUS_TITLE' | translate }}
             </strong>
 
             <small>
-              Venez nous découvrir
+              {{ 'LOCATION.STATUS_SUB' | translate }}
             </small>
           </div>
 
@@ -114,8 +114,8 @@
           <span>
             {{
               chargementPosition
-                ? 'Localisation en cours...'
-                : "Obtenir l'itinéraire"
+                ? ('LOCATION.LOCATING' | translate)
+                : ('LOCATION.GET_DIRECTIONS' | translate)
             }}
           </span>
 
@@ -166,8 +166,8 @@
           </div>
 
           <div>
-            <strong>Notre boutique</strong>
-            <span>Ksour Essef, Mahdia</span>
+            <strong>{{ 'LOCATION.SHOP' | translate }}</strong>
+            <span>{{ 'LOCATION.SHOP_CITY' | translate }}</span>
           </div>
 
         </div>

@@ -1,5 +1,3 @@
-
-
 <!-- ===== LOCALISATION ===== -->
 <section id="localisation" class="location-section">
   <div class="location-container">
@@ -7,25 +5,23 @@
     <div class="location-header">
       <span class="location-eyebrow">
         <span class="eyebrow-line"></span>
-        NOUS RENDRE VISITE
+        {{ 'LOCATION.EYEBROW' | translate }}
         <span class="eyebrow-line"></span>
       </span>
-      <h2 class="section-title">Notre localisation</h2>
-      <p class="location-subtitle">Retrouvez-nous facilement et venez découvrir notre univers.</p>
+      <h2 class="section-title">{{ 'LOCATION.TITLE' | translate }}</h2>
+      <p class="location-subtitle">{{ 'LOCATION.VISIT_SUBTITLE' | translate }}</p>
     </div>
 
     <div class="location-wrapper">
 
       <div class="location-info">
         <div class="address-block">
-          
+
           <div>
-            <span class="address-title">Adresse</span>
-            <p>Ceinture de Mahdia,<br>Ksour Essef, Mahdia, Tunisie</p>
+            <span class="address-title">{{ 'LOCATION.ADDRESS_TITLE' | translate }}</span>
+            <p>{{ 'LOCATION.ADDRESS_LINE1' | translate }}<br>{{ 'LOCATION.ADDRESS_LINE2' | translate }}</p>
           </div>
         </div>
-
-        
 
         <button class="btn-itinerary" (click)="obtenirItineraire()" [disabled]="chargementPosition">
           <span class="button-icon">
@@ -34,7 +30,7 @@
               <circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.7"/>
             </svg>
           </span>
-          <span>{{ chargementPosition ? 'Localisation en cours...' : "Obtenir l'itinéraire" }}</span>
+          <span>{{ chargementPosition ? ('LOCATION.LOCATING' | translate) : ('LOCATION.GET_DIRECTIONS' | translate) }}</span>
           <span class="button-arrow">→</span>
         </button>
 
@@ -43,9 +39,6 @@
 
       <div class="location-map">
         <iframe [src]="mapUrl" loading="lazy" allowfullscreen></iframe>
-        
-          
-        
       </div>
 
     </div>
@@ -54,30 +47,30 @@
 
 <!-- ===== FORMULAIRE DE CONTACT ===== -->
 <section id="contact" class="container page-section contact-form-section">
-  <h2 class="section-title">Contactez-nous</h2>
-  <p class="contact-form-subtitle">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
+  <h2 class="section-title">{{ 'CONTACT.TITLE' | translate }}</h2>
+  <p class="contact-form-subtitle">{{ 'CONTACT.SUBTITLE' | translate }}</p>
 
   <form class="contact-form" (ngSubmit)="envoyerMessage()">
     <div class="form-row">
-      <label for="contactNom">Nom</label>
-      <input type="text" id="contactNom" [(ngModel)]="contactNom" name="contactNom" placeholder="Votre nom" required>
+      <label for="contactNom">{{ 'CONTACT.NAME' | translate }}</label>
+      <input type="text" id="contactNom" [(ngModel)]="contactNom" name="contactNom" [placeholder]="'CONTACT.NAME_PLACEHOLDER' | translate" required>
     </div>
 
     <div class="form-row">
-      <label for="contactEmail">Email</label>
-      <input type="email" id="contactEmail" [(ngModel)]="contactEmail" name="contactEmail" placeholder="votre@email.com" required>
+      <label for="contactEmail">{{ 'CONTACT.EMAIL' | translate }}</label>
+      <input type="email" id="contactEmail" [(ngModel)]="contactEmail" name="contactEmail" [placeholder]="'CONTACT.EMAIL_PLACEHOLDER' | translate" required>
     </div>
 
     <div class="form-row">
-      <label for="contactMessage">Message</label>
-      <textarea id="contactMessage" [(ngModel)]="contactMessage" name="contactMessage" rows="5" placeholder="Votre message..." required></textarea>
+      <label for="contactMessage">{{ 'CONTACT.MESSAGE' | translate }}</label>
+      <textarea id="contactMessage" [(ngModel)]="contactMessage" name="contactMessage" rows="5" [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate" required></textarea>
     </div>
 
     <button type="submit" class="btn-primary" [disabled]="envoiEnCours">
-      {{ envoiEnCours ? 'Envoi en cours...' : 'Envoyer le message' }}
+      {{ envoiEnCours ? ('CONTACT.SENDING' | translate) : ('CONTACT.SEND' | translate) }}
     </button>
 
-    <p class="form-success" *ngIf="envoiReussi">✅ Votre message a bien été envoyé, merci !</p>
+    <p class="form-success" *ngIf="envoiReussi">{{ 'CONTACT.SUCCESS' | translate }}</p>
     <p class="form-error" *ngIf="envoiErreur">{{ envoiErreur }}</p>
   </form>
 </section>

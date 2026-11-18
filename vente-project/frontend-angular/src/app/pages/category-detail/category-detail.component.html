@@ -18,5 +18,5 @@
     </a>
   </div>
 
-  <p *ngIf="produits.length === 0">Aucun produit dans cette catégorie pour le moment.</p>
+  <p *ngIf="produits.length === 0">{{ 'CATEGORY.NO_PRODUCTS' | translate }}</p>
 </section>

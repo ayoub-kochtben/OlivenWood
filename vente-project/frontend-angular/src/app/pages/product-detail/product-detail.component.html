@@ -26,19 +26,19 @@
 
       <div class="dimensions" *ngIf="produit.largeur || produit.hauteur || produit.diametre || produit.longueur">
         <div class="dim-item" *ngIf="produit.longueur">
-          <span class="dim-label">Longueur</span>
+          <span class="dim-label">{{ 'PRODUCT.DIM_LENGTH' | translate }}</span>
           <span class="dim-value">{{ produit.longueur }} cm</span>
         </div>
         <div class="dim-item" *ngIf="produit.largeur">
-          <span class="dim-label">Largeur</span>
+          <span class="dim-label">{{ 'PRODUCT.DIM_WIDTH' | translate }}</span>
           <span class="dim-value">{{ produit.largeur }} cm</span>
         </div>
         <div class="dim-item" *ngIf="produit.hauteur">
-          <span class="dim-label">Hauteur</span>
+          <span class="dim-label">{{ 'PRODUCT.DIM_HEIGHT' | translate }}</span>
           <span class="dim-value">{{ produit.hauteur }} cm</span>
         </div>
         <div class="dim-item" *ngIf="produit.diametre">
-          <span class="dim-label">Diamètre</span>
+          <span class="dim-label">{{ 'PRODUCT.DIM_DIAMETER' | translate }}</span>
           <span class="dim-value">{{ produit.diametre }} cm</span>
         </div>
       </div>
@@ -48,10 +48,10 @@
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="whatsapp-icon">
             <path d="M12.04 2a9.9 9.9 0 0 0-8.42 15.1L2.3 21.7l4.72-1.24A9.9 9.9 0 1 0 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.53.04-1.03.2-3.5-.9-2.97-1.32-4.8-4.55-4.94-4.76-.14-.2-1.17-1.75-1.17-3.34 0-1.59.83-2.37 1.12-2.7.29-.32.63-.4.85-.4h.6c.2 0 .46-.03.7.55.24.6.83 2.1.9 2.25.07.15.1.33 0 .53-.1.2-.32.44-.51.66-.19.22-.34.4-.5.6-.15.2-.34.4-.15.74.19.34.86 1.42 1.86 2.3 1.27 1.13 2.35 1.48 2.68 1.65.34.17.53.14.73-.09.2-.23.85-1 .97-1.34.12-.34.24-.29.44-.22.2.07 1.27.6 1.49.71.22.12.36.17.42.27.05.1.05.62-.19 1.3z"/>
           </svg>
-          Commander via WhatsApp
+          {{ 'PRODUCT.ORDER_WHATSAPP' | translate }}
         </a>
 
-        <a routerLink="/a-propos" fragment="contact" class="btn-outline">Nous contacter</a>
+        <a routerLink="/a-propos" fragment="contact" class="btn-outline">{{ 'PRODUCT.CONTACT_US' | translate }}</a>
       </div>
     </div>
   </div>
@@ -59,8 +59,8 @@
   <!-- Produits de la même catégorie -->
   <div class="related-section" *ngIf="produitsSimilaires.length > 0">
     <div class="related-header">
-      <span class="related-overline">Sélection</span>
-      <h2>Vous aimerez aussi</h2>
+      <span class="related-overline">{{ 'PRODUCT.SELECTION' | translate }}</span>
+      <h2>{{ 'PRODUCT.YOU_MAY_LIKE' | translate }}</h2>
     </div>
 
     <div class="related-list">

@@ -18,10 +18,7 @@ export class HeaderComponent implements OnInit {
   categories: Category[] = [];
   productsByCategory: { [id: number]: Product[] } = {};
   hoveredCategoryId: number | null = null;
-  hoveredLocation = false;
   hoveredAbout = false;
-
-  lienGoogleMaps = 'https://www.google.com/maps?q=35.44533566310324,11.01669485091932';
 
   isHomePage = true;
   isScrolled = false;

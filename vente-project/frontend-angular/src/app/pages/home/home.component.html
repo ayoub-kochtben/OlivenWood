@@ -2,8 +2,8 @@
   <div class="hero-bg"></div>
   <div class="container hero-inner">
     <div class="hero-text">
-      <h1>Oliven Wood</h1>
-      <p>Des créations uniques en bois d'olivier, façonnées avec passion et savoir-faire.</p>
+      <h1>{{ 'HOME.TITLE' | translate }}</h1>
+      <p>{{ 'HOME.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="hero-logo-wrap">
@@ -13,7 +13,7 @@
 </section>
 
 <section class="container">
-  <h2 class="section-title">Nos créations</h2>
+  <h2 class="section-title">{{ 'HOME.OUR_CREATIONS' | translate }}</h2>
 
   <div class="product-showcase-grid">
     <a *ngFor="let p of produitsCarrousel; trackBy: trackByIndex" [routerLink]="['/produit', p.id]" class="showcase-item">
@@ -56,8 +56,8 @@
   </button>
 
   <div class="story-content" *ngIf="storySlides.length > 0">
-    <h2>{{ storySlides[currentSlide]?.titre }}</h2>
-    <p>{{ storySlides[currentSlide]?.soustitre }}</p>
+    <h2>{{ 'HOME.SLIDE' + (currentSlide + 1) + '_TITLE' | translate }}</h2>
+    <p>{{ 'HOME.SLIDE' + (currentSlide + 1) + '_SUB' | translate }}</p>
   </div>
 
   <div class="story-dots">
@@ -70,16 +70,7 @@
 <section class="story">
   <div class="story-bg"></div>
   <div class="container story-inner">
-    <h2 class="section-title" style="color:#fff; text-align:left;">Notre histoire</h2>
-    <p>
-      Tout a commencé au cœur des oliveraies centenaires, là où le bois d'olivier,
-      façonné par le temps et le soleil méditerranéen, révèle des veines uniques
-      et une teinte incomparable. Chez Oliven Wood, chaque pièce est sculptée à
-      la main par des artisans passionnés qui perpétuent un savoir-faire transmis
-      de génération en génération. Du plateau à découper au bol le plus délicat,
-      nous transformons le bois issu d'oliviers en fin de vie en objets durables,
-      chargés d'histoire, pensés pour accompagner votre quotidien avec authenticité
-      et élégance naturelle.
-    </p>
+    <h2 class="section-title" style="color:#fff; text-align:left;">{{ 'HOME.OUR_STORY' | translate }}</h2>
+    <p>{{ 'HOME.STORY_TEXT' | translate }}</p>
   </div>
 </section>
