@@ -1,4 +1,4 @@
-<section class="hero">
+﻿<section class="hero">
   <div class="hero-bg"></div>
   <div class="container hero-inner">
     <div class="hero-text">
@@ -7,7 +7,7 @@
     </div>
 
     <div class="hero-logo-wrap">
-      <img src="assets/images/logo2.png" alt="Oliven Wood" class="hero-logo">
+      <img src="assets/images/logo2.webp" alt="Oliven Wood" class="hero-logo">
     </div>
   </div>
 </section>
@@ -19,22 +19,24 @@
     <a *ngFor="let p of produitsCarrousel; trackBy: trackByIndex" [routerLink]="['/produit', p.id]" class="showcase-item">
       <div class="showcase-img-wrap">
         <img
-          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'"
+          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/logo2.webp'"
           [alt]="p.nom"
           class="showcase-img"
+          loading="lazy"
+          decoding="async"
         >
-        <img src="assets/images/logo2.png" alt="" class="showcase-badge">
+        <img src="assets/images/logo2.webp" alt="" class="showcase-badge">
       </div>
 
       <div class="showcase-info">
         <h4>{{ p.nom }}</h4>
-        <p class="prix">{{ p.prix | number:'1.2-2' }} €</p>
+        <p class="prix">{{ p.prix | number:'1.2-2' }} â‚¬</p>
       </div>
     </a>
   </div>
 </section>
 
-<!-- Notre histoire — carrousel -->
+<!-- Notre histoire â€” carrousel -->
 <section class="story-carousel">
   <div class="slide"
        *ngFor="let slide of storySlides; let i = index; trackBy: trackByIndex"
@@ -44,7 +46,7 @@
 
   <div class="story-overlay"></div>
 
-  <button class="story-arrow arrow-left" (click)="onArrowClick('prev')" aria-label="Précédent">
+  <button class="story-arrow arrow-left" (click)="onArrowClick('prev')" aria-label="PrÃ©cÃ©dent">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>

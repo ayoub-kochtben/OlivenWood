@@ -1,4 +1,4 @@
-.hero {
+﻿.hero {
   position: relative;
   min-height: 480px;
   margin-top: calc(-1 * var(--header-height));
@@ -11,7 +11,7 @@
 .hero-bg {
   position: absolute;
   inset: -20px;
-  background-image: url('/assets/images/wallpaper1.jpg');
+  background-image: url('/assets/images/wallpaper1.webp');
   background-size: cover;
   background-position: center;
   filter: blur(3px);
@@ -80,7 +80,7 @@
   .hero-text h1 { font-size: 32px; }
 }
 
-// ===== Grille "Nos créations" =====
+// ===== Grille "Nos crÃ©ations" =====
 .product-showcase-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -106,11 +106,11 @@
     width: 100%;
     height: 300px;
     background: #fff;
-    overflow: hidden; // indispensable pour masquer le débordement de l'image au hover
+    overflow: hidden; // indispensable pour masquer le dÃ©bordement de l'image au hover
   }
 
-  // L'image est légèrement plus grande que son cadre
-  // pour pouvoir "se déplacer" sans laisser de vide
+  // L'image est lÃ©gÃ¨rement plus grande que son cadre
+  // pour pouvoir "se dÃ©placer" sans laisser de vide
   .showcase-img {
     position: absolute;
     inset: 0;
@@ -158,11 +158,11 @@
 
   // ===== Hover =====
   &:hover {
-    // La carte "sort" légèrement
+    // La carte "sort" lÃ©gÃ¨rement
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 
-    // L'image se déplace légèrement (pan) au lieu de changer complètement
+    // L'image se dÃ©place lÃ©gÃ¨rement (pan) au lieu de changer complÃ¨tement
     .showcase-img {
       transform: scale(1.08) translate(-3%, -3%);
     }
@@ -184,7 +184,7 @@
   }
 }
 
-// ===== Notre histoire — carrousel =====
+// ===== Notre histoire â€” carrousel =====
 .story-carousel {
   position: relative;
   height: 640px;
@@ -344,7 +344,7 @@
 .story-bg {
   position: absolute;
   inset: -20px;
-  background-image: url('/assets/images/his2.png');
+  background-image: url('/assets/images/his2.webp');
   background-size: cover;
   background-position: center;
   transform: scale(1.08);

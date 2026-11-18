@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CategoryService } from '../../core/services/category.service';
 import { ProductService } from '../../core/services/product.service';
 import { Category } from '../../core/models/category.model';
@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   produitsCarrousel: Product[] = [];
 
   storySlides: StorySlide[] = [
-    { image: 'assets/images/history1.png' },
-    { image: 'assets/images/history2.png' },
-    { image: 'assets/images/history3.png' }
+    { image: 'assets/images/history1.webp' },
+    { image: 'assets/images/history2.webp' },
+    { image: 'assets/images/history3.webp' }
   ];
   currentSlide = 0;
   private autoplayId: any;

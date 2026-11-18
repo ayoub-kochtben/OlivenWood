@@ -1,4 +1,4 @@
-.page-section { padding: 40px 0; }
+﻿.page-section { padding: 40px 0; }
 .about-grid { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
 .about-grid img { width: 420px; max-width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
 .lead { font-size: 17px; color: var(--text-muted); margin-bottom: 20px; }
@@ -82,7 +82,7 @@
   box-shadow: 0 38px 90px rgba(30, 42, 34, 0.15), 0 10px 30px rgba(30, 42, 34, 0.07);
 }
 
-/* --- Encart adresse : fond flouté + voile sombre pour la lisibilité --- */
+/* --- Encart adresse : fond floutÃ© + voile sombre pour la lisibilitÃ© --- */
 .location-info {
   position: relative;
   display: flex;
@@ -92,21 +92,21 @@
   color: #ffffff;
 }
 
-/* Image de fond isolée dans un pseudo-élément pour pouvoir la flouter
-   sans flouter le texte / les éléments au-dessus */
+/* Image de fond isolÃ©e dans un pseudo-Ã©lÃ©ment pour pouvoir la flouter
+   sans flouter le texte / les Ã©lÃ©ments au-dessus */
 .location-info::before {
   content: "";
   position: absolute;
-  inset: -20px; /* déborde légèrement pour cacher les bords nets du flou */
+  inset: -20px; /* dÃ©borde lÃ©gÃ¨rement pour cacher les bords nets du flou */
   z-index: 0;
-  background-image: url('/assets/images/6.png');
+  background-image: url('/assets/images/6.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(1px) brightness(0.55);
 }
 
-/* Voile sombre supplémentaire pour garantir la lisibilité du texte blanc */
+/* Voile sombre supplÃ©mentaire pour garantir la lisibilitÃ© du texte blanc */
 .location-info::after {
   content: "";
   position: absolute;
@@ -380,7 +380,7 @@
   font-size: 15px;
 }
 
-/* --- Formulaire : fond flouté + voile clair pour la lisibilité --- */
+/* --- Formulaire : fond floutÃ© + voile clair pour la lisibilitÃ© --- */
 .contact-form {
   position: relative;
   text-align: left;
@@ -397,21 +397,21 @@
   transition: box-shadow 0.3s ease;
 }
 
-/* Image de fond isolée dans un pseudo-élément pour pouvoir la flouter
+/* Image de fond isolÃ©e dans un pseudo-Ã©lÃ©ment pour pouvoir la flouter
    sans flouter le texte / les champs au-dessus */
 .contact-form::before {
   content: "";
   position: absolute;
-  inset: -20px; /* déborde légèrement pour cacher les bords nets du flou */
+  inset: -20px; /* dÃ©borde lÃ©gÃ¨rement pour cacher les bords nets du flou */
   z-index: 0;
-  background-image: url('/assets/images/3.png');
+  background-image: url('/assets/images/3.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   filter: none;
 }
 
-/* Plus de voile : l'image reste entièrement visible */
+/* Plus de voile : l'image reste entiÃ¨rement visible */
 .contact-form::after {
   content: none;
 }

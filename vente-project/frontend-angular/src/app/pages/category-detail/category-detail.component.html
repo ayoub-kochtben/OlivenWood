@@ -1,4 +1,4 @@
-<section class="container page-section">
+﻿<section class="container page-section">
   <h1 class="section-title">{{ categorie?.nom }}</h1>
 
   <div class="product-grid">
@@ -6,15 +6,17 @@
 
       <div class="product-img-wrap">
         <img
-          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/placeholder.png'"
+          [src]="p.images && p.images.length > 0 ? p.images[0].url : 'assets/images/logo2.webp'"
           [alt]="p.nom"
           class="product-img"
+          loading="lazy"
+          decoding="async"
         >
-        <img src="assets/images/logo2.png" alt="" class="product-badge">
+        <img src="assets/images/logo2.webp" alt="" class="product-badge">
       </div>
 
       <h4>{{ p.nom }}</h4>
-      <p class="prix">{{ p.prix | number:'1.0-2' }} €</p>
+      <p class="prix">{{ p.prix | number:'1.0-2' }} â‚¬</p>
     </a>
   </div>
 

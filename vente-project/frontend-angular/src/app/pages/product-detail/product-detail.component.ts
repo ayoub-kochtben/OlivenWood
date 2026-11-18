@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../core/services/product.service';
@@ -12,7 +12,7 @@ import { Product } from '../../core/models/product.model';
 export class ProductDetailComponent implements OnInit, OnDestroy {
   produit?: Product;
   produitsSimilaires: Product[] = [];
-  imageActive = 'assets/images/placeholder.png';
+  imageActive = 'assets/images/logo2.webp';
 
   whatsappUrl = 'https://wa.me/21650124331';
 
@@ -43,10 +43,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.produit = produit;
     this.imageActive = produit.images?.length
       ? produit.images[0].url
-      : 'assets/images/placeholder.png';
+      : 'assets/images/logo2.webp';
 
     const message = encodeURIComponent(
-      `Bonjour, je suis intéressé(e) par : ${produit.nom} (${produit.prix.toFixed(2)} €).`
+      `Bonjour, je suis intÃ©ressÃ©(e) par : ${produit.nom} (${produit.prix.toFixed(2)} â‚¬).`
     );
     this.whatsappUrl = `https://wa.me/21650124331?text=${message}`;
 

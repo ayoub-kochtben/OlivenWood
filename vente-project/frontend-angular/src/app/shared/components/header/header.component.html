@@ -1,4 +1,4 @@
-<header class="main-header" [class.header-transparent]="isHomePage && !isScrolled">
+﻿<header class="main-header" [class.header-transparent]="isHomePage && !isScrolled">
 
   <!-- ========================================================= -->
   <!-- HEADER NORMAL                                             -->
@@ -10,7 +10,7 @@
 
       <!-- LOGO -->
       <a routerLink="/" class="logo">
-        <img src="assets/images/logo.png" alt="Oliven Wood" class="logo-img">
+        <img src="assets/images/logo.webp" alt="Oliven Wood" class="logo-img">
         <span class="logo-text">Oliven Wood</span>
       </a>
 
@@ -29,8 +29,8 @@
 
         <ul class="search-results" *ngIf="resultats.length">
           <li *ngFor="let p of resultats" (click)="allerVersProduit(p.id)">
-            <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
-            <span>{{ p.nom }} — {{ p.prix | number:'1.0-2' }} €</span>
+            <img [src]="p.images.length ? p.images[0].url : 'assets/images/logo2.webp'" [alt]="p.nom" loading="lazy" decoding="async">
+            <span>{{ p.nom }} â€” {{ p.prix | number:'1.0-2' }} â‚¬</span>
           </li>
         </ul>
       </div>
@@ -92,7 +92,7 @@
                 <a *ngFor="let p of productsByCategory[c.id]" [routerLink]="['/produit', p.id]" class="mega-product">
                   <span class="mega-product-title">{{ p.nom }}</span>
                   <span class="mega-line"></span>
-                  <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
+                  <img [src]="p.images.length ? p.images[0].url : 'assets/images/logo2.webp'" [alt]="p.nom" loading="lazy" decoding="async">
                 </a>
               </div>
 
@@ -100,7 +100,7 @@
                 <p class="mega-empty">{{ 'HEADER.NO_PRODUCTS_YET' | translate }}</p>
               </ng-template>
 
-              <a [routerLink]="['/categories', c.id]" class="mega-see-all">{{ 'HEADER.SEE_ALL' | translate }} →</a>
+              <a [routerLink]="['/categories', c.id]" class="mega-see-all">{{ 'HEADER.SEE_ALL' | translate }} â†’</a>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
             <div class="mega-content" [class.home-menu]="isHomePage">
               <div class="mega-title">{{ 'HEADER.CONTACT_US_TITLE' | translate }}</div>
               <p>{{ 'HEADER.CONTACT_US_TEXT' | translate }}</p>
-              <a routerLink="/a-propos" class="mega-see-all">{{ 'HEADER.LEARN_MORE' | translate }} →</a>
+              <a routerLink="/a-propos" class="mega-see-all">{{ 'HEADER.LEARN_MORE' | translate }} â†’</a>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@
   </ng-container>
 
   <!-- ========================================================= -->
-  <!-- HEADER COMPACT APRÈS SCROLL                              -->
+  <!-- HEADER COMPACT APRÃˆS SCROLL                              -->
   <!-- ========================================================= -->
 
   <div class="header-compact" *ngIf="isScrolled">
@@ -139,7 +139,7 @@
 
       <!-- LOGO -->
       <a routerLink="/" class="compact-logo">
-        <img src="assets/images/logo.png" alt="Oliven Wood" class="compact-logo-img">
+        <img src="assets/images/logo.webp" alt="Oliven Wood" class="compact-logo-img">
         <span class="compact-logo-text">Oliven Wood</span>
       </a>
 
@@ -190,8 +190,8 @@
 
           <ul class="search-results" *ngIf="resultats.length">
             <li *ngFor="let p of resultats" (click)="allerVersProduit(p.id)">
-              <img [src]="p.images.length ? p.images[0].url : 'assets/images/placeholder.png'" [alt]="p.nom">
-              <span>{{ p.nom }} — {{ p.prix | number:'1.0-2' }} €</span>
+              <img [src]="p.images.length ? p.images[0].url : 'assets/images/logo2.webp'" [alt]="p.nom" loading="lazy" decoding="async">
+              <span>{{ p.nom }} â€” {{ p.prix | number:'1.0-2' }} â‚¬</span>
             </li>
           </ul>
         </div>

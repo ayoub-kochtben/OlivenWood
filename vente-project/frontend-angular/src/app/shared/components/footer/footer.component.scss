@@ -1,8 +1,8 @@
-// =========================
+﻿// =========================
 //   VARIABLES LOCALES (footer)
 // =========================
 $footer-text: #f2f2f2;
-$footer-accent: #f5c451; // couleur dorée pour icônes/hover — change ici si besoin
+$footer-accent: #f5c451; // couleur dorÃ©e pour icÃ´nes/hover â€” change ici si besoin
 $footer-muted: #d9d9d9;
 $footer-border: rgba(255, 255, 255, 0.15);
 $footer-overlay: rgba(16, 21, 18, 0.80);
@@ -13,18 +13,18 @@ $footer-overlay: rgba(16, 21, 18, 0.80);
 // =========================
 .main-footer {
   // Deux couches : overlay sombre + image
-  // ⚠️ background-size s'applique dans le même ordre que les couches déclarées
+  // âš ï¸ background-size s'applique dans le mÃªme ordre que les couches dÃ©clarÃ©es
   background-image:
     linear-gradient($footer-overlay, $footer-overlay),
-    url('/assets/images/2.png');
+    url('/assets/images/2.webp');
 
-  // "100% 100%" pour CHAQUE couche => l'image est étirée
-  // exactement à la taille du footer, jamais rognée
+  // "100% 100%" pour CHAQUE couche => l'image est Ã©tirÃ©e
+  // exactement Ã  la taille du footer, jamais rognÃ©e
   background-size: 100% 100%, 100% 100%;
   background-position: center center, center center;
   background-repeat: no-repeat, no-repeat;
 
-  // Empêche tout rognage accidentel par un parent
+  // EmpÃªche tout rognage accidentel par un parent
   overflow: visible;
 
   color: #fff;
