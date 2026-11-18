@@ -1,32 +1,15 @@
-# 🛍️ VenteShop — Projet e-commerce (Angular + Spring Boot + MySQL)
+# Oliven Wood — Site vitrine 100% statique (Angular)
 
-## 📁 Structure du projet
+Site de présentation de créations en bois d'olivier. Aucun backend requis : le catalogue est stocké en dur dans le frontend, le site se déploie sur n'importe quel hébergeur statique (Netlify, Vercel, GitHub Pages...).
+
+## 📁 Structure
 ```
 vente-project/
-├── frontend-angular/       → Application Angular (à ouvrir dans VSCode)
-├── backend-springboot/     → API Spring Boot (à ouvrir dans IntelliJ)
-└── database/
-    └── vente_db.sql        → Script à exécuter dans MySQL Workbench
+├── frontend-angular/    → Application Angular statique
+└── ai-service/          → Service IA (FastAPI) du chatbot
 ```
 
-## 1️⃣ Base de données (MySQL Workbench)
-1. Ouvrir MySQL Workbench, se connecter à votre instance locale.
-2. Ouvrir et exécuter le fichier `database/vente_db.sql` (crée la base `vente_db`, les tables et des données de démo).
-
-## 2️⃣ Backend (IntelliJ IDEA)
-1. Ouvrir le dossier `backend-springboot` comme projet Maven.
-2. Modifier `src/main/resources/application.properties` si besoin (utilisateur/mot de passe MySQL).
-3. Lancer `VenteApplication.java` → API disponible sur **http://localhost:8080/api**
-
-Endpoints principaux :
-- `GET /api/produits` — liste des produits
-- `GET /api/produits/{id}` — détail produit
-- `GET /api/produits/categorie/{id}` — produits par catégorie
-- `GET /api/produits/recherche?nom=...` — recherche
-- `GET /api/categories` — liste des catégories
-- `POST /api/auth/login` / `POST /api/auth/register`
-
-## 3️⃣ Frontend (VSCode)
+## 🚀 Lancer en local
 ```bash
 cd frontend-angular
 npm install
@@ -34,24 +17,37 @@ npm start
 ```
 → Application disponible sur **http://localhost:4200**
 
-## 📄 Pages incluses
+## 📦 Build de production
+```bash
+npm run build
+```
+→ Résultat dans `dist/vente-frontend` (fichiers statiques à déployer).
+
+## 🗂 Données du catalogue
+Les produits et catégories sont définis dans :
+`src/app/core/data/site-data.ts`
+
+Pour ajouter/modifier un produit ou une catégorie, éditez simplement ce fichier (les images se trouvent dans `src/assets/images`).
+
+## 📄 Pages
 | Page | Route | Contenu |
 |---|---|---|
-| En-tête (partout) | — | Logo, barre de recherche, login, panier |
-| Accueil | `/` | Bannière, avantages, catégories, produits populaires, bandeau promo |
-| Catégories | `/categories` | Liste de toutes les catégories |
-| Détail catégorie | `/categories/:id` | Produits de la catégorie (image, prix, description) |
-| Détail produit | `/produit/:id` | Fiche produit + ajout au panier |
-| À propos | `/a-propos` | Présentation + "Le saviez-vous ?" |
-| Localisation | `/localisation` | Carte + adresse + horaires |
-| Connexion | `/login` | Connexion / inscription |
-| Panier | `/panier` | Articles ajoutés + total |
-| Agent IA | Widget flottant | Chat assistant (à connecter à un vrai service IA) |
+| Accueil | `/` | Bannière, créations, histoire (carrousel) |
+| Catégories | `/categories` | Liste des catégories |
+| Détail catégorie | `/categories/:id` | Produits de la catégorie |
+| Détail produit | `/produit/:id` | Fiche produit + commande via WhatsApp |
+| À propos / Contact | `/a-propos` | Présentation, carte, formulaire de contact (FormSubmit) |
+| Localisation | `/localisation` | Carte + itinéraire |
+| Chatbot IA | Widget flottant | Assistant conversationnel |
 
-## 🔧 Prochaines étapes recommandées (niveau professionnel)
-- Sécuriser l'authentification avec **Spring Security + JWT**.
-- Hasher les mots de passe avec **BCrypt**.
-- Ajouter la pagination sur `/api/produits`.
-- Uploader de vraies images (stockage local ou cloud type S3/Cloudinary).
-- Ajouter une gestion des commandes (`Commande`, `LigneCommande`).
-- Déployer : backend sur un serveur (Docker), frontend sur Vercel/Netlify, DB sur un service managé.
+## 🤖 Chatbot IA (optionnel)
+Le widget affiché en bas de page interroge le service `ai-service` (FastAPI + RAG). Pour le faire fonctionner :
+```bash
+cd ai-service
+pip install -r requirements.txt
+uvicorn main:app --port 8000
+```
+L'URL du service est définie par la constante `AI_SERVICE_URL` dans `src/app/shared/components/ai-agent/ai-agent.component.ts` (à adapter en production). Sans ce service, le site reste entièrement fonctionnel.
+
+## 🛒 Commande (sans panier)
+Le site est vitrine : sur chaque fiche produit, un bouton **« Commander via WhatsApp »** ouvre une conversation pré-remplie avec le nom et le prix du produit.

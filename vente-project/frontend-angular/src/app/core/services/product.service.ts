@@ -1,39 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { PRODUITS } from '../data/site-data';
 import { Product } from '../models/product.model';
-import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private apiUrl = `${environment.apiUrl}/produits`;
 
-  constructor(private http: HttpClient) {}
-
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+  getAll(): Product[] {
+    return PRODUITS;
   }
 
-  getById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  getById(id: number): Product | undefined {
+    return PRODUITS.find(p => p.id === id);
   }
 
-  getByCategorie(categorieId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/categorie/${categorieId}`);
+  getByCategorie(categorieId: number): Product[] {
+    return PRODUITS.filter(p => p.categorieId === categorieId);
   }
 
-  search(motCle: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/recherche?nom=${motCle}`);
-  }
-  create(produit: Partial<Product>): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, produit);
-  }
-
-  update(id: number, produit: Partial<Product>): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/${id}`, produit);
-  }
-
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  search(motCle: string): Product[] {
+    const cle = motCle.trim().toLowerCase();
+    if (!cle) {
+      return [];
+    }
+    return PRODUITS.filter(p =>
+      p.nom.toLowerCase().includes(cle) ||
+      p.description.toLowerCase().includes(cle)
+    );
   }
 }

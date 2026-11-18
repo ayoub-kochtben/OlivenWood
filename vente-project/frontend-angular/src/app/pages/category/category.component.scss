@@ -5,6 +5,18 @@
 .category-card {
   text-decoration: none; color: var(--text-dark); text-align: center;
   background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-  span { font-weight: 600; }
+  span { font-weight: 600; display: block; }
+  .category-desc {
+    display: block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #777;
+  }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
 }

@@ -156,47 +156,12 @@
   flex-wrap: wrap;
 }
 
-.qty-selector {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 30px;
-  overflow: hidden;
-
-  button {
-    width: 38px;
-    height: 42px;
-    border: none;
-    background: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    color: var(--text-dark, #1a1a2e);
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: #f2f2f2;
-    }
-  }
-
-  input {
-    width: 46px;
-    height: 42px;
-    text-align: center;
-    border: none;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    font-size: 15px;
-    -moz-appearance: textfield;
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-}
+// (sélecteur de quantité supprimé — site vitrine sans panier)
 
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 13px 32px;
   border: none;
   border-radius: 30px;
@@ -207,9 +172,45 @@
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   transition: background 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
 
   &:hover {
     background: var(--primary-dark, var(--primary));
+    transform: translateY(-1px);
+  }
+}
+
+.whatsapp-btn {
+  background: #25d366;
+
+  &:hover {
+    background: #1eb85a;
+  }
+
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border: 1.5px solid var(--primary);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: var(--primary);
+    color: #fff;
     transform: translateY(-1px);
   }
 }

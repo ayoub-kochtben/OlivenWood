@@ -49,16 +49,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-  this.categoryService.getAll().subscribe(res => {
-    this.categories = res;
-    this.categoriesCarrousel = [...res, ...res];
-  });
-  this.productService.getAll().subscribe(res => {
-    this.produitsCarrousel = res;
-  });
+    this.categories = this.categoryService.getAll();
+    this.categoriesCarrousel = [...this.categories, ...this.categories];
+    this.produitsCarrousel = this.productService.getAll();
 
-  this.startAutoplay();
-}
+    this.startAutoplay();
+  }
 
   ngOnDestroy(): void {
     clearInterval(this.autoplayId);

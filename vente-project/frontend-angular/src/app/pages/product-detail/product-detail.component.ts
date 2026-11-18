@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../core/services/product.service';
-import { CartService } from '../../core/services/cart.service';
 import { Product } from '../../core/models/product.model';
 
 @Component({
@@ -13,15 +12,15 @@ import { Product } from '../../core/models/product.model';
 export class ProductDetailComponent implements OnInit, OnDestroy {
   produit?: Product;
   produitsSimilaires: Product[] = [];
-  quantite = 1;
   imageActive = 'assets/images/placeholder.png';
+
+  whatsappUrl = 'https://wa.me/21650124331';
 
   private routeSub!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
-    private cartService: CartService
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -34,32 +33,26 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   private chargerProduit(id: number): void {
-    this.productService.getById(id).subscribe(res => {
-      this.produit = res;
-      this.quantite = 1;
-
-      if (res.images && res.images.length > 0) {
-        this.imageActive = res.images[0].url;
-      } else {
-        this.imageActive = 'assets/images/placeholder.png';
-      }
-
-      if (res.categorieId !== undefined && res.categorieId !== null) {
-        this.productService.getByCategorie(res.categorieId).subscribe(produits => {
-          this.produitsSimilaires = produits.filter(
-            p => Number(p.id) !== Number(res.id)
-          );
-        });
-      } else {
-        this.produitsSimilaires = [];
-      }
-    });
-  }
-
-  ajouterAuPanier(): void {
-    if (this.produit) {
-      this.cartService.ajouter(this.produit.id, this.quantite);
+    const produit = this.productService.getById(id);
+    if (!produit) {
+      this.produit = undefined;
+      this.produitsSimilaires = [];
+      return;
     }
+
+    this.produit = produit;
+    this.imageActive = produit.images?.length
+      ? produit.images[0].url
+      : 'assets/images/placeholder.png';
+
+    const message = encodeURIComponent(
+      `Bonjour, je suis intéressé(e) par : ${produit.nom} (${produit.prix.toFixed(2)} €).`
+    );
+    this.whatsappUrl = `https://wa.me/21650124331?text=${message}`;
+
+    this.produitsSimilaires = produit.categorieId
+      ? this.productService.getByCategorie(produit.categorieId).filter(p => p.id !== produit.id)
+      : [];
   }
 
   ngOnDestroy(): void {

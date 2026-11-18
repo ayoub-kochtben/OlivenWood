@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+
+// URL du service IA (FastAPI) — lancez `uvicorn main:app --port 8000` dans ai-service/
+const AI_SERVICE_URL = 'http://localhost:8000';
 
 @Component({
   selector: 'app-ai-agent',
@@ -27,7 +29,7 @@ export class AiAgentComponent {
     this.saisie = '';
     this.enCours = true;
 
-    this.http.post<{ answer: string }>(`${environment.apiUrl}/agent-ia`, { question }).subscribe({
+    this.http.post<{ answer: string }>(`${AI_SERVICE_URL}/chat`, { question }).subscribe({
       next: (res) => {
         this.messages.push({ texte: res.answer, deMoi: false });
         this.enCours = false;

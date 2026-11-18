@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -21,12 +18,9 @@ import { CategoryDetailComponent } from './pages/category-detail/category-detail
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LocationComponent } from './pages/location/location.component';
-import { LoginComponent } from './pages/login/login.component';
-import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
-    AdminHeaderComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -36,17 +30,12 @@ import { CartComponent } from './pages/cart/cart.component';
     CategoryDetailComponent,
     ProductDetailComponent,
     AboutComponent,
-    LocationComponent,
-    LoginComponent,
-    CartComponent,
-    AdminLoginComponent,
-  AdminDashboardComponent
+    LocationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fr'

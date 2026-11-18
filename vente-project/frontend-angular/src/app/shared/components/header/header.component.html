@@ -54,45 +54,6 @@
           </div>
         </div>
 
-        <!-- LOGIN / COMPTE -->
-        <!-- LOGIN / COMPTE -->
-        <div class="account-menu" *ngIf="!authService.isLoggedIn()">
-          <a routerLink="/login" class="action-btn">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-            <span>{{ 'HEADER.LOGIN' | translate }}</span>
-          </a>
-        </div>
-
-        <div class="account-menu" *ngIf="authService.isLoggedIn()">
-          <button class="action-btn" (click)="toggleAccountMenu()">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-            <span>{{ 'HEADER.LOGOUT' | translate }}</span>
-          </button>
-
-          <div class="account-dropdown" *ngIf="accountMenuOuvert">
-            <button (click)="deconnexion()">
-              {{ 'HEADER.LOGOUT_CONFIRM_SHORT' | translate }}
-            </button>
-          </div>
-        </div>
-
-        <!-- PANIER -->
-        <a routerLink="/panier" class="action-btn cart-btn">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.4a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/>
-            <circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/>
-          </svg>
-          <span>{{ 'HEADER.CART' | translate }}</span>
-          <span class="badge" *ngIf="nombreArticlesPanier > 0">{{ nombreArticlesPanier }}</span>
-        </a>
-
       </div>
 
     </div>
@@ -164,6 +125,27 @@
           </div>
         </div>
 
+        <!-- LOCALISATION -->
+        <div class="nav-item" (mouseenter)="hoveredLocation=true" (mouseleave)="hoveredLocation=false">
+          <a routerLink="/localisation">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            {{ 'HEADER.LOCATION' | translate }}
+          </a>
+
+          <div class="mega-menu small-menu" *ngIf="hoveredLocation">
+            <div class="mega-content" [class.home-menu]="isHomePage">
+              <div class="mega-title">{{ 'HEADER.OUR_LOCATION_TITLE' | translate }}</div>
+              <p>{{ 'HEADER.OUR_LOCATION_TEXT' | translate }}</p>
+              <a [href]="lienGoogleMaps" target="_blank" rel="noopener noreferrer" class="mega-see-all">
+                {{ 'HEADER.OPEN_MAPS' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </nav>
 
@@ -214,38 +196,6 @@
           </svg>
         </button>
 
-                <!-- LOGIN / COMPTE -->
-        <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="compact-icon-btn">
-          <svg viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
-            <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7"/>
-          </svg>
-        </a>
-
-        <div class="account-menu" *ngIf="authService.isLoggedIn()">
-          <button class="compact-icon-btn" (click)="toggleAccountMenu()">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="currentColor" stroke-width="1.7"/>
-            </svg>
-          </button>
-
-          <div class="account-dropdown" *ngIf="accountMenuOuvert">
-            <button (click)="deconnexion()">
-              {{ 'HEADER.LOGOUT_CONFIRM_SHORT' | translate }}
-            </button>
-          </div>
-        </div>
-        <!-- PANIER -->
-        <a routerLink="/panier" class="compact-icon-btn compact-cart">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.4a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/>
-            <circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/>
-          </svg>
-          <span class="badge" *ngIf="nombreArticlesPanier > 0">{{ nombreArticlesPanier }}</span>
-        </a>
-
       </div>
     </div>
 
@@ -270,7 +220,5 @@
     </div>
 
   </div>
-
-  
 
 </header>

@@ -2,8 +2,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
 import { CategoryService } from '../../../core/services/category.service';
-import { CartService } from '../../../core/services/cart.service';
-import { AuthService } from '../../../core/services/auth.service';
 import { Product } from '../../../core/models/product.model';
 import { Category } from '../../../core/models/category.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,7 +14,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   motCle = '';
   resultats: Product[] = [];
-  nombreArticlesPanier = 0;
 
   categories: Category[] = [];
   productsByCategory: { [id: number]: Product[] } = {};
@@ -29,8 +26,6 @@ export class HeaderComponent implements OnInit {
   isHomePage = true;
   isScrolled = false;
   compactSearchOpen = false;
-
-  accountMenuOuvert = false;
 
   langues = [
     { code: 'fr', label: 'FR', drapeau: '🇫🇷' },
@@ -46,8 +41,6 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private productService: ProductService,
     private categoryService: CategoryService,
-    private cartService: CartService,
-    public authService: AuthService,
     private translate: TranslateService
   ) {
     this.translate.addLangs(['fr', 'en', 'es', 'it', 'de']);
@@ -73,15 +66,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartService.items$.subscribe(() => {
-      this.nombreArticlesPanier = this.cartService.getNombreArticles();
-    });
-    this.categoryService.getAll().subscribe(res => this.categories = res);
+    this.categories = this.categoryService.getAll();
   }
 
   rechercher(): void {
     if (this.motCle.trim().length > 1) {
-      this.productService.search(this.motCle).subscribe(res => this.resultats = res);
+      this.resultats = this.productService.search(this.motCle).slice(0, 6);
     } else {
       this.resultats = [];
     }
@@ -97,9 +87,7 @@ export class HeaderComponent implements OnInit {
   onCategoryEnter(categorie: Category): void {
     this.hoveredCategoryId = categorie.id;
     if (!this.productsByCategory[categorie.id]) {
-      this.productService.getByCategorie(categorie.id).subscribe(res => {
-        this.productsByCategory[categorie.id] = res.slice(0, 4);
-      });
+      this.productsByCategory[categorie.id] = this.productService.getByCategorie(categorie.id).slice(0, 4);
     }
   }
 
@@ -120,15 +108,5 @@ export class HeaderComponent implements OnInit {
 
   toggleLangueMenu(): void {
     this.langueMenuOuvert = !this.langueMenuOuvert;
-  }
-
-  toggleAccountMenu(): void {
-    this.accountMenuOuvert = !this.accountMenuOuvert;
-  }
-
-  deconnexion(): void {
-    this.authService.logout();
-    this.accountMenuOuvert = false;
-    this.router.navigate(['/']);
   }
 }
